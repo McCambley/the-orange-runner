@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { Header } from "../styles/styledLayout";
 import { GlobalStyle } from "../styles/Global";
 
 const name = "The Orange Runner";
@@ -20,7 +21,7 @@ export default function Layout({ children, home }) {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <GlobalStyle />
-      <header>
+      <Header>
         {home ? (
           <>
             <Image priority src="/images/logo.png" height={144} width={144} alt={name} />
@@ -40,7 +41,7 @@ export default function Layout({ children, home }) {
             </h2>
           </>
         )}
-      </header>
+      </Header>
 
       <main>{children}</main>
       {!home && (
@@ -50,7 +51,9 @@ export default function Layout({ children, home }) {
           </Link>
         </div>
       )}
-      <footer>The Orange Runner &copy; 2022</footer>
+      <footer>
+        <p>The Orange Runner &copy; 2022</p>
+      </footer>
     </>
   );
 }
