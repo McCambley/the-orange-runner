@@ -1,4 +1,12 @@
 import Layout from "../components/Layout";
+import { createClient, CreateClient } from "contentful";
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+}
 
 export default function Home() {
   return <>{/* <h1>{"Here's page content"}</h1> */}</>;
