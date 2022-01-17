@@ -10,6 +10,8 @@ export async function getStaticProps() {
 
   const res = await client.getEntries({ content_type: "comic" });
 
+  console.log(res.items);
+
   return {
     props: {
       comics: res.items,

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { generateShimmer } from "../lib/shimmer";
 
 export default function ComicCard({ comic }) {
-  const { title, slug, subtitle, panels } = comic.fields;
+  const { title, slug, subtitle, panels, story } = comic.fields;
   return (
     <>
       <Link href={`/comics/${slug}`}>

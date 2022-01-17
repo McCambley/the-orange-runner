@@ -2,8 +2,9 @@ import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "../../components/Layout";
+import Story from "../../components/Story";
+import Comic from "../../components/Comic";
 import { createClient } from "contentful";
-import { generateShimmer } from "../../lib/shimmer";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -38,34 +39,19 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Comic({ comic }) {
+export default function Post({ comic }) {
   console.log({ comic });
+  const { title, subtitle, extendedComic } = comic.fields;
 
   return (
     <Layout home={false}>
       <Head>
-        <title>{comic.fields.title}</title>
+        <title>{title}</title>
       </Head>
       {/* map over images from comicData to make articles */}
-      <h2>{comic.fields.title}</h2>
-      <h3>{comic.fields.subtitle}</h3>
-      {comic.fields.panels.map((item) => {
-        return (
-          <Image
-            key={item.sys.id}
-            src={`http:${item.fields.file.url}`}
-            height={item.fields.file.details.image.height / 2}
-            width={item.fields.file.details.image.width / 2}
-            alt={item.fields.title}
-            placeholder="blur"
-            blurDataURL={generateShimmer(
-              item.fields.file.details.image.width / 2,
-              item.fields.file.details.image.height / 2
-            )}
-          />
-        );
-      })}
-
+      <h2>{title}</h2>
+      <h3>{subtitle}</h3>
+      {extendedComic ? <Story comic={comic} /> : <Comic comic={comic} />}
       <Link href="/">
         <a>← Back to home</a>
       </Link>
