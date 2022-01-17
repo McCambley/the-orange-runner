@@ -36,6 +36,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { comic: res.items[0] },
+    revalidate: 10,
   };
 }
 
