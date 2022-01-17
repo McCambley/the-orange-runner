@@ -5,8 +5,9 @@
 - [x] Connect to Contentful CMS
 - [x] Configure static rendering of existing comics
 - [x] Configure incremental rendering of new comics
+- [x] Create "404" page
+- [ ] Create "About" page
 - [ ] Style...
-- [ ] Create 404 page
 
 ## Coming later:
 
