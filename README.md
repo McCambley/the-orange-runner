@@ -2,7 +2,13 @@
 
 ## Coming soon:
 
-- [ ] Connect to Contentful CMS
-- [ ] Configure static rendering of new comics
+- [x] Connect to Contentful CMS
+- [x] Configure static rendering of existing comics
+- [ ] Configure incremental rendering of new comics
 - [ ] Style...
 - [ ] Create 404 page
+
+## Coming later:
+
+- [ ] Build the shop
+- [ ] Render rich text for long form posts
