@@ -20,7 +20,6 @@ export default function Layout({ children, home }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <GlobalStyle />
       <Header>
         {home ? (
           <>
@@ -44,13 +43,6 @@ export default function Layout({ children, home }) {
       </Header>
 
       <main>{children}</main>
-      {!home && (
-        <div>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
       <footer>
         <p>The Orange Runner &copy; 2022</p>
       </footer>

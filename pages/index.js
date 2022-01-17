@@ -1,15 +1,31 @@
 import Layout from "../components/Layout";
 import { createClient, CreateClient } from "contentful";
+import ComicCard from "../components/ComicCard";
 
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
+
+  const res = await client.getEntries({ content_type: "comic" });
+
+  return {
+    props: {
+      comics: res.items,
+    },
+  };
 }
 
-export default function Home() {
-  return <>{/* <h1>{"Here's page content"}</h1> */}</>;
+export default function Home({ comics }) {
+  console.log(comics);
+  return (
+    <Layout home={true}>
+      {comics.map((comic) => (
+        <ComicCard key={comic.sys.id} comic={comic} />
+      ))}
+    </Layout>
+  );
 }
 
 // <main className={styles.main}>
