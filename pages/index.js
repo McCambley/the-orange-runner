@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import { createClient, CreateClient } from "contentful";
+import { createClient } from "contentful";
 import ComicCard from "../components/ComicCard";
 
 export async function getStaticProps() {

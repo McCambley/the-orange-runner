@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { Header } from "../styles/styledLayout";
-import { GlobalStyle } from "../styles/Global";
 
 const name = "The Orange Runner";
 export const siteTitle = "The Orange Runner";
