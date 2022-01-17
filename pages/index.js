@@ -1,13 +1,7 @@
 import Layout from "../components/Layout";
 
 export default function Home() {
-  return (
-    <>
-      <Layout home={true}>
-        <h1>{"Here's page content"}</h1>
-      </Layout>
-    </>
-  );
+  return <>{/* <h1>{"Here's page content"}</h1> */}</>;
 }
 
 // <main className={styles.main}>

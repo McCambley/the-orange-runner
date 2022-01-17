@@ -50,6 +50,7 @@ export default function Layout({ children, home }) {
           </Link>
         </div>
       )}
+      <footer>The Orange Runner &copy; 2022</footer>
     </>
   );
 }
