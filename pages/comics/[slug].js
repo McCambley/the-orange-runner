@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import { createClient } from "contentful";
+import { generateShimmer } from "../../lib/shimmer";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -56,6 +57,11 @@ export default function Comic({ comic }) {
             height={item.fields.file.details.image.height / 2}
             width={item.fields.file.details.image.width / 2}
             alt={item.fields.title}
+            placeholder="blur"
+            blurDataURL={generateShimmer(
+              item.fields.file.details.image.width / 2,
+              item.fields.file.details.image.height / 2
+            )}
           />
         );
       })}
