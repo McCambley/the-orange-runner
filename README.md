@@ -4,5 +4,5 @@
 
 - [ ] Connect to Contentful CMS
 - [ ] Configure static rendering of new comics
-- [ ] Style
+- [ ] Style...
 - [ ] Create 404 page
