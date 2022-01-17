@@ -5,6 +5,7 @@ import Layout from "../../components/Layout";
 import Story from "../../components/Story";
 import Comic from "../../components/Comic";
 import { createClient } from "contentful";
+import Fallback from "../../components/Fallback";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -24,7 +25,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -41,7 +42,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post({ comic }) {
-  console.log({ comic });
+  if (!comic) return <Fallback />;
   const { title, subtitle, extendedComic } = comic.fields;
 
   return (
