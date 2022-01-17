@@ -12,6 +12,12 @@ box-sizing: border-box;
 html {
 /* background: rgba(255,153,0,1); */
 background: #ff9900;
+
+/* temporary */
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
 }
 h1 {
 margin: 0;

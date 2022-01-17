@@ -1,6 +1,4 @@
 import Layout from "../components/Layout";
-import { GlobalStyle } from "../styles/styledGlobal";
-import { Container } from "../styles/styledHome";
 
 export default function Home() {
   return (
