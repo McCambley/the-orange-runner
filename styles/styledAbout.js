@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  /* TODO delete? */
   a {
     color: #ff9900;
   }

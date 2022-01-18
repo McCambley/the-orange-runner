@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { generateShimmer } from "../lib/shimmer";
 import { Wrapper, Hr, ShareContainer, Twitter, Facebook, LinkedIn, Instagram, Copy } from "../styles/styledComicCard";
 import Panel from "./Panel";

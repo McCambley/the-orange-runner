@@ -1,7 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { generateShimmer } from "../lib/shimmer";
-import Image from "next/image";
 import Layout from "../components/Layout";
 import { createClient } from "contentful";
 import { Wrapper } from "../styles/styledAbout";
@@ -23,7 +22,6 @@ export async function getStaticProps() {
 }
 
 export default function About({ about }) {
-  console.log({ about });
   const renderOption = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
