@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { generateShimmer } from "../lib/shimmer";
 import { Wrapper, Hr, ShareContainer, Twitter, Facebook, LinkedIn, Instagram, Copy } from "../styles/styledComicCard";
+import Panel from "./Panel";
 
 export default function ComicCard({ comic }) {
   const { title, slug, subtitle, panels, story } = comic.fields;
@@ -17,17 +18,22 @@ export default function ComicCard({ comic }) {
           <h2>{title}</h2>
         </a>
       </Link>
-      <Image
-        src={`https:${panels[0].fields.file.url}`}
-        width={panels[0].fields.file.details.image.width / 2}
-        height={panels[0].fields.file.details.image.height / 2}
-        alt={"comic preview"}
-        placeholder="blur"
-        blurDataURL={generateShimmer(
-          panels[0].fields.file.details.image.width / 2,
-          panels[0].fields.file.details.image.height / 2
-        )}
-      />
+      {panels.map((panel) => {
+        return (
+          <Panel
+            key={panel.sys.id}
+            src={`https:${panel.fields.file.url}`}
+            width={panel.fields.file.details.image.width / 2}
+            height={panel.fields.file.details.image.height / 2}
+            alt={"comic preview"}
+            placeholder="blur"
+            blurDataURL={generateShimmer(
+              panel.fields.file.details.image.width / 2,
+              panel.fields.file.details.image.height / 2
+            )}
+          />
+        );
+      })}
       <Hr />
       <ShareContainer>
         <Twitter name="Twitter" type="button" onClick={handleShare} />
