@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
 export const Main = styled.main`
   border-left: 2px solid #000;
-  padding: 0 60px;
+  padding: 30px 60px 35px;
   max-height: 100vh;
   overflow: scroll;
 `;

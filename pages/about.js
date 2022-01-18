@@ -4,7 +4,6 @@ import { generateShimmer } from "../lib/shimmer";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import { createClient } from "contentful";
-import Image from "next/image";
 
 export async function getStaticProps() {
   const client = createClient({
