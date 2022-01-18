@@ -15,12 +15,12 @@ export default function ComicCard({ comic }) {
 
   return (
     <Wrapper>
+      <Date dateString={createdAt} />
       <Link href={`/comics/${slug}`}>
         <a>
           <h2>{title}</h2>
         </a>
       </Link>
-      <Date dateString={createdAt} />
       {panels.map((panel) => {
         return (
           <Panel

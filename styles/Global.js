@@ -87,4 +87,17 @@ a {
         color: #FF9900;
     }
 }
+
+time {
+    display: block;
+    margin: 0;
+    font-family: "Source Sans Pro", sans-serif; 
+    /* font-family: "PT Serif", serif; */
+    font-weight: 700;
+    /* margin-bottom: 4px; */
+    font-size: 12px;
+    color: #ff9900;
+    width: 100%;
+    /* text-align: right; */
+}
 `;
