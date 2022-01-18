@@ -1,22 +1,24 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { Wrapper, Title, Message, Safety } from "../styles/styledNotFound";
+
 export default function NotFound() {
   const router = useRouter();
 
   useEffect(() => {
     setTimeout(() => {
       router.push("/");
-    }, 2000);
+    }, 4000);
   }, []);
 
   return (
-    <div>
-      <h1>404</h1>
-      <h2>That page cannot be found</h2>
-      <Link href="/">
-        <a>Head back home</a>
+    <Wrapper>
+      <Title>404</Title>
+      <Message>{"Oops! We're lost."}</Message>
+      <Link href="/" passHref>
+        <Safety>&larr; Head back home </Safety>
       </Link>
-    </div>
+    </Wrapper>
   );
 }
