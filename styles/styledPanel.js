@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
   max-width: 50vh;
   position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 
   &:after {
     content: "";

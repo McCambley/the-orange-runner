@@ -5,6 +5,7 @@ import Image from "next/image";
 import Layout from "../components/Layout";
 import { createClient } from "contentful";
 import { Wrapper } from "../styles/styledAbout";
+import Panel from "../components/Panel";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -29,7 +30,7 @@ export default function About({ about }) {
         const { url, details } = node.data.target.fields.file;
         const { height, width } = details.image;
         return (
-          <Image
+          <Panel
             src={`https:${url}`}
             height={height}
             width={width}
