@@ -9,7 +9,6 @@ export default function ComicCard({ comic }) {
       <Link href={`/comics/${slug}`}>
         <a>
           <h2>{title}</h2>
-          {/* <h3>{subtitle}</h3> */}
         </a>
       </Link>
       <Image
@@ -23,6 +22,7 @@ export default function ComicCard({ comic }) {
           panels[0].fields.file.details.image.height / 2
         )}
       />
+      <hr />
     </>
   );
 }

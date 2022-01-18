@@ -20,6 +20,7 @@ h1 {
 
 h2 {
     margin: 0;
+    margin-bottom: 8px;
     font-family: "Source Sans Pro", sans-serif; 
     font-weight: 900;
 }
