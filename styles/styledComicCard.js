@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.article`
   margin-bottom: 16px;
+  width: 100%;
 `;
 
 export const Hr = styled.hr`

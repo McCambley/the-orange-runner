@@ -26,6 +26,8 @@ export const Main = styled.main`
     border-left: none;
     padding: 30px 40px 35px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
   }
 `;
