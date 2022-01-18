@@ -12,51 +12,37 @@ export const Wrapper = styled.header`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    transform: rotate(-0.5deg);
-    transition: transform 0.3s ease;
+    border-top: none;
+    border-bottom: 2px solid #000;
   }
 `;
 
-export const Form = styled.form`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-`;
-
-export const Label = styled.label`
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 900;
-  font-size: 16px;
-  margin-bottom: 4px;
-`;
-
-export const InputWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 5px;
-  border: 1px solid #000;
-  overflow: hidden;
-`;
-
-export const Input = styled.input`
-  border: none;
-  padding: 8px;
-
-  &:focus-visible {
-    outline: #000 auto 1px;
+export const LargeLogo = styled.a`
+  display: block;
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
-export const Button = styled.button`
-  background-image: url("/images/search.svg");
+export const SmallLogo = styled.a`
+  display: none;
+  @media (max-width: 768px) {
+    width: 76px;
+    display: block;
+  }
+`;
+
+export const Hamburger = styled.button`
+  display: none;
+  background-color: transparent;
+  border: 1px solid red;
+  background-image: url(${(props) => (props.$isOpen ? "/images/close.svg" : "/images/open.svg")});
   background-size: contain;
-  background-position: center;
   background-repeat: no-repeat;
-  background-color: #000;
-  border: none;
-  width: 200px;
-  padding: 4px;
+  background-position: center;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;

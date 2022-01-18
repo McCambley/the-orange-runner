@@ -1,52 +1,26 @@
 import Link from "next/link";
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import { Wrapper, Form, Label, InputWrapper, Input, Button } from "../styles/styledHeader";
+import { useState } from "react";
+import { Wrapper, Hamburger, LargeLogo, SmallLogo } from "../styles/styledHeader";
 import Navigation from "./Navigation";
+import Image from "next/image";
 
 export default function Header() {
-  const [searchPlaceholder, setSearchPlaceholder] = useState("");
-  const [searchValue, setSearchValue] = useState("");
-
-  useEffect(() => {
-    setSearchPlaceholder("Prefontaine");
-  }, []);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert(`Searching ${searchValue}`);
-  }
-
-  function handleChange(e) {
-    setSearchValue(e.target.value);
-  }
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Wrapper>
-      <Link href="/">
-        <a>
+      <Link href="/" passHref>
+        <LargeLogo>
           <Image priority src="/images/logo-header.jpeg" height={1536} width={1536} alt="The Orange runner" />
-        </a>
+        </LargeLogo>
       </Link>
-      <Form onSubmit={handleSubmit} action="">
-        <Label htmlFor="search">Search</Label>
-        <InputWrapper>
-          <Input
-            required
-            minLength={2}
-            maxLength={36}
-            name="search"
-            id="search"
-            type="text"
-            placeholder={searchPlaceholder}
-            onChange={handleChange}
-            value={searchValue}
-            validate
-          />
-          <Button type="submit" />
-        </InputWrapper>
-      </Form>
-      <Navigation />
+      <Link href="/" passHref>
+        <SmallLogo>
+          <Image priority src="/images/logo.png" height={512} width={512} alt="The Orange runner" />
+        </SmallLogo>
+      </Link>
+      <Hamburger type="button" $isOpen={isOpen} />
+      <Navigation isOpen={isOpen} />
     </Wrapper>
   );
 }

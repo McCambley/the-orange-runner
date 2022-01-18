@@ -13,4 +13,8 @@ export const Main = styled.main`
   padding: 30px 60px 35px;
   max-height: 100vh;
   overflow: scroll;
+  @media (max-width: 768px) {
+    border-left: none;
+    border-top: 8px solid #ff9900;
+  }
 `;
