@@ -24,7 +24,11 @@ export default function Header() {
             <Image priority src="/images/logo.png" height={512} width={512} alt="The Orange runner" />
           </SmallLogo>
         </Link>
-        <Image priority src="/images/the-orange-runner.png" height={67} width={478} alt="The Orange runner" />
+        <Link href="/" passHref>
+          <a>
+            <Image priority src="/images/the-orange-runner.png" height={67} width={478} alt="The Orange runner" />
+          </a>
+        </Link>
         <Hamburger type="button" onClick={toggleOpen} $isOpen={isOpen} />
       </StickyHeader>
       <Navigation isOpen={isOpen} />
