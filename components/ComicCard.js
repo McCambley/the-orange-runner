@@ -23,6 +23,7 @@ export default function ComicCard({ comic }) {
         )}
       />
       <hr />
+      <div></div>
     </>
   );
 }
