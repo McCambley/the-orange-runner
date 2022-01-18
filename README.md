@@ -6,8 +6,13 @@
 - [x] Configure static rendering of existing comics
 - [x] Configure incremental rendering of new comics
 - [x] Create "404" page
-- [ ] Create "About" page
-- [ ] Style...
+- [x] Create "About" page
+- [x] Style...
+- [ ] Impliment search functionality
+- [ ] Create Favorites page
+- [ ] Impliment share functionality
+- [ ] Render full story on homepage
+- [ ] Render date on comics
 
 ## Coming later:
 
