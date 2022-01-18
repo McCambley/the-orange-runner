@@ -2,14 +2,16 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  border: 1px solid red;
-  /* width: 100%; */
-  height: 50vh;
-  max-height: 50vh;
+  width: 100%;
+  max-width: 50vh;
   position: relative;
-  /* display: flex;
-  justify-content: flex-start; */
-  /* overflow: auto; */
+  margin-bottom: 8px;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
 `;
 export default function Panel({ src, width, height, alt, placeholder, blurDataURL, ...props }) {
   return (
