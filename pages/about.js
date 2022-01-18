@@ -4,6 +4,7 @@ import { generateShimmer } from "../lib/shimmer";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import { createClient } from "contentful";
+import { Wrapper } from "../styles/styledAbout";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -42,8 +43,10 @@ export default function About({ about }) {
   };
   return (
     <Layout>
-      <h1>{about.title}</h1>
-      <>{documentToReactComponents(about.content, renderOption)}</>
+      <Wrapper>
+        <h1>{about.title}</h1>
+        {documentToReactComponents(about.content, renderOption)}
+      </Wrapper>
     </Layout>
   );
 }

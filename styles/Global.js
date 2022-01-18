@@ -10,12 +10,17 @@ ${normalize};
 }
     
 h1 {
-    font-weight: 700;
-    line-height: 1.4em;
+    font-size: 36px;
+    line-height: 1.1em;
     margin: 0;
-    font-weight: 700;
+    margin-bottom: 20px;
     font-family: "Source Sans Pro", sans-serif; 
     font-weight: 900;
+
+    @media (max-width: 600px) {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
 }
 
 h2 {
@@ -23,11 +28,17 @@ h2 {
     margin-bottom: 8px;
     font-family: "Source Sans Pro", sans-serif; 
     font-weight: 900;
+
+    @media (max-width: 600px) {
+        font-size: 20px;
+    }
+
+   
 }
 
 h3 {
     margin: 0;
-    opacity: .5;
+    margin-bottom: 8px;
     font-family: "Source Sans Pro", sans-serif; 
     font-weight: 900;
 }
@@ -54,6 +65,9 @@ p {
     margin: 0;
     font-weight: 400;
     font-family: "PT Serif", serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin-bottom: 20px;
 }
 
 a {
