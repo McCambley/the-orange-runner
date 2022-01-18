@@ -2,13 +2,15 @@ import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
 
 export const GlobalStyle = createGlobalStyle`
-/* sample font to test imports from google fonts */
-/* @import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap'); */
 
 ${normalize};
-/* body {
-min-width: 320px;
-} */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+/* font-family: 'Source Sans Pro', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* font-family: 'PT Serif', serif; */
+
+
 * {
 box-sizing: border-box;
 }
@@ -22,9 +24,7 @@ align-items: center;
 min-height: 100vh;
 padding: 16px;
 /* default Next font taken from tutorial */
-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+
 
 h1 {
 font-weight: 700;
