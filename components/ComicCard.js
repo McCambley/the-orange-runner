@@ -9,7 +9,7 @@ export default function ComicCard({ comic }) {
       <Link href={`/comics/${slug}`}>
         <a>
           <h2>{title}</h2>
-          <h3>{subtitle}</h3>
+          {/* <h3>{subtitle}</h3> */}
         </a>
       </Link>
       <Image
