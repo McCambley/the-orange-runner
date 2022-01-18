@@ -58,7 +58,6 @@ export const Hamburger = styled.button`
   @media (max-width: 768px) {
     display: block;
     background-color: transparent;
-    border: 1px solid red;
     background-image: url(${(props) => (props.$isOpen ? "/images/close.svg" : "/images/open.svg")});
     background-size: contain;
     background-repeat: no-repeat;
