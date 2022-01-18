@@ -9,11 +9,31 @@ export const Wrapper = styled.header`
   padding: 16px 30px 0;
   max-height: 100vh;
   overflow: scroll;
+  background: #fff;
 
   @media (max-width: 768px) {
     flex-direction: column;
     border-top: none;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background: none;
+    box-shadow: ${(props) => (props.$isOpen ? "0 0 12px rgba(0, 0, 0, .3)" : "none")};
+    transition: box-shadow 0.3s ease;
+  }
+`;
+
+export const StickyHeader = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 2px solid #000;
+    padding: 8px 16px;
+    background: #fff;
   }
 `;
 
@@ -34,15 +54,18 @@ export const SmallLogo = styled.a`
 
 export const Hamburger = styled.button`
   display: none;
-  background-color: transparent;
-  border: 1px solid red;
-  background-image: url(${(props) => (props.$isOpen ? "/images/close.svg" : "/images/open.svg")});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
 
   @media (max-width: 768px) {
     display: block;
+    background-color: transparent;
+    border: 1px solid red;
+    background-image: url(${(props) => (props.$isOpen ? "/images/close.svg" : "/images/open.svg")});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 0.15s ease;
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
   }
 `;
