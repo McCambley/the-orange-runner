@@ -8,6 +8,10 @@ ${normalize};
     font-family: "PT Serif", serif;
     font-weight: 900;
 }
+
+body {
+    min-width: 320px
+}
     
 h1 {
     font-size: 36px;
