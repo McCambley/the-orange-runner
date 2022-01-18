@@ -2,9 +2,12 @@ import Link from "next/link";
 import { generateShimmer } from "../lib/shimmer";
 import { Wrapper, Hr, ShareContainer, Twitter, Facebook, LinkedIn, Instagram, Copy } from "../styles/styledComicCard";
 import Panel from "./Panel";
+import Date from "./Date";
 
 export default function ComicCard({ comic }) {
   const { title, slug, subtitle, panels, story } = comic.fields;
+  const { createdAt } = comic.sys;
+  console.log(comic);
 
   function handleShare(e) {
     alert(`Sharing to ${e.target.name}`);
@@ -17,6 +20,7 @@ export default function ComicCard({ comic }) {
           <h2>{title}</h2>
         </a>
       </Link>
+      <Date dateString={createdAt} />
       {panels.map((panel) => {
         return (
           <Panel
