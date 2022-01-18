@@ -8,11 +8,12 @@
 - [x] Create "404" page
 - [x] Create "About" page
 - [x] Style...
-- [ ] Impliment search functionality
+- [ ] [Impliment search functionality](https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/)
 - [ ] Create Favorites page
 - [ ] Impliment share functionality
 - [ ] Render full story on homepage
 - [ ] Render date on comics
+- [ ] Paginate using [react-cool-inview](https://github.com/wellyshen/react-cool-inview) with [these instructions](https://www.youtube.com/watch?v=_cccpx2Bw_g&ab_channel=BetterDev) or [search pagination with contentful client](https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/)
 
 ## Coming later:
 
