@@ -1,8 +1,19 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.article`
+  margin-bottom: 16px;
+`;
+
 export const Hr = styled.hr`
   border-top: 2px solid #999999;
 `;
+
+export const ShareContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
 export const Icon = styled.button`
   width: 20px;
   height: 20px;
@@ -12,28 +23,25 @@ export const Icon = styled.button`
   background-color: transparent;
   border: none;
   margin-right: 8px;
-
-  &:last-of-type {
-    margin-right: none;
-  }
+  cursor: pointer;
 `;
 
-const Twitter = styled(Icon)`
+export const Twitter = styled(Icon)`
   background-image: url("/images/share/twitter.svg");
 `;
 
-const Facebook = styled(Icon)`
+export const Facebook = styled(Icon)`
   background-image: url("/images/share/facebook.svg");
 `;
 
-const Instagram = styled(Icon)`
+export const Instagram = styled(Icon)`
   background-image: url("/images/share/instagram.svg");
 `;
 
-const LinkedIn = styled(Icon)`
+export const LinkedIn = styled(Icon)`
   background-image: url("/images/share/linkedin.svg");
 `;
 
-const Copy = styled(Icon)`
+export const Copy = styled(Icon)`
   background-image: url("/images/share/copy.svg");
 `;
