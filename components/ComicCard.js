@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { generateShimmer } from "../lib/shimmer";
+import { Hr, Twitter, Facebook, LinkedIn, Instagram, Copy } from "../styles/styledComicCard";
 
 export default function ComicCard({ comic }) {
   const { title, slug, subtitle, panels, story } = comic.fields;
@@ -22,7 +23,7 @@ export default function ComicCard({ comic }) {
           panels[0].fields.file.details.image.height / 2
         )}
       />
-      <hr />
+      <Hr />
       <div></div>
     </>
   );
