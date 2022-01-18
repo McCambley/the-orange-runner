@@ -8,6 +8,12 @@ export const Wrapper = styled.div`
     grid-template-columns: 1fr;
     padding-top: 96px;
   }
+  @media (max-width: 580px) {
+    padding-top: 80px;
+  }
+  @media (max-width: 400px) {
+    padding-top: 68px;
+  }
 `;
 
 export const Main = styled.main`
