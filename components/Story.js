@@ -5,6 +5,7 @@ import Image from "next/image";
 import Panel from "./Panel";
 import Date from "./Date";
 import Link from "next/link";
+import Share from "./Share";
 
 export default function Story({ comic }) {
   const { originalPublishDate, title, slug } = comic.fields;
@@ -35,6 +36,7 @@ export default function Story({ comic }) {
         </a>
       </Link>
       {documentToReactComponents(comic.fields.story, renderOption)}
+      <Share />
     </>
   );
 }
