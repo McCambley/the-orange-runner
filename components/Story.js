@@ -5,7 +5,7 @@ import Panel from "./Panel";
 import Date from "./Date";
 import Link from "next/link";
 import Share from "./Share";
-import { Hr, Wrapper } from "../styles/styledStory";
+import { Hr, Quote, Wrapper } from "../styles/styledStory";
 
 export default function Story({ comic }) {
   const { originalPublishDate, title, slug } = comic.fields;
@@ -28,7 +28,7 @@ export default function Story({ comic }) {
       },
       [BLOCKS.QUOTE]: (node, children) => {
         const { value } = node.content[0].content[0];
-        return <h1>{value}</h1>;
+        return <Quote>{`"${value}"`}</Quote>;
       },
     },
   };
