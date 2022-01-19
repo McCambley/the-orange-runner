@@ -9,6 +9,7 @@ import { Hr, Wrapper } from "../styles/styledStory";
 
 export default function Story({ comic }) {
   const { originalPublishDate, title, slug } = comic.fields;
+  console.log(comic.fields);
   const renderOption = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
@@ -24,6 +25,10 @@ export default function Story({ comic }) {
             blurDataURL={generateShimmer(width, height)}
           />
         );
+      },
+      [BLOCKS.QUOTE]: (node, children) => {
+        const { value } = node.content[0].content[0];
+        return <h1>{value}</h1>;
       },
     },
   };
