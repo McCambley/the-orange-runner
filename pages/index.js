@@ -20,6 +20,9 @@ export async function getStaticProps() {
 }
 
 export default function Home({ comics }) {
+  comics.forEach((comic) => {
+    console.log(comic.fields.keywords.join(", ").toLowerCase());
+  });
   return (
     <Layout home={true}>
       {comics.map((comic) =>
