@@ -37,3 +37,7 @@ export const LinkedIn = styled(Icon)`
 export const Copy = styled(Icon)`
   background-image: url("/images/share/copy.svg");
 `;
+
+export const ShareIcon = styled(Icon)`
+  background-image: url("/images/share/share.svg");
+`;
