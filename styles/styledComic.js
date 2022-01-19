@@ -7,5 +7,8 @@ export const Wrapper = styled.article`
 `;
 
 export const Hr = styled.hr`
-  border-top: 2px solid #999999;
+  border: none;
+  height: 2px;
+  background-color: #000;
+  border-radius: 5px;
 `;
