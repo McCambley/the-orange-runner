@@ -18,7 +18,7 @@ export const Wrapper = styled.header`
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     background: none;
     box-shadow: ${(props) => (props.$isOpen ? "0 0 12px rgba(0, 0, 0, .3)" : "none")};
     transition: box-shadow 0.3s ease;
@@ -84,4 +84,15 @@ export const Hamburger = styled.button`
     height: 48px;
     width: 48px;
   }
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  max-height: ${(props) => (props.$isOpen ? "100vh" : "0")};
+  opacity: ${(props) => (props.$isOpen ? "1" : "0")};
+  width: 100vw;
+  z-index: 1;
+  transition: opacity 0.5s ease;
 `;
