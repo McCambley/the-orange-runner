@@ -59,8 +59,6 @@ export default function Post({ comic }) {
         <title>{title}</title>
       </Head>
       {/* map over images from comicData to make articles */}
-      <h2>{title}</h2>
-      <h3>{subtitle}</h3>
       {extendedComic ? <Story comic={comic} /> : <Comic comic={comic} />}
       <Link href="/">
         <a>← Back to home</a>

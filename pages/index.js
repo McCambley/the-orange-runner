@@ -1,6 +1,8 @@
 import Layout from "../components/Layout";
 import { createClient } from "contentful";
-import ComicCard from "../components/ComicCard";
+import Comic from "../components/Comic";
+import Story from "../components/Story";
+import ComicOld from "../components/ComicOld";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -19,11 +21,20 @@ export async function getStaticProps() {
 }
 
 export default function Home({ comics }) {
+  console.log(comics[0].fields.extendedComic);
   return (
     <Layout home={true}>
-      {comics.map((comic) => (
+      {/* previous homepage layout */}
+      {/* {comics.map((comic) => (
         <ComicCard key={comic.sys.id} comic={comic} />
-      ))}
+      ))} */}
+      {comics.map((comic) =>
+        comic.fields.extendedComic ? (
+          <Story comic={comic} key={comic.sys.id} />
+        ) : (
+          <Comic comic={comic} key={comic.sys.id} />
+        )
+      )}
     </Layout>
   );
 }
