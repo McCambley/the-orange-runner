@@ -8,7 +8,7 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
-  const res = await client.getEntries({ content_type: "comic" });
+  const res = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate" });
 
   return {
     props: {

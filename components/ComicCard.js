@@ -5,9 +5,7 @@ import Panel from "./Panel";
 import Date from "./Date";
 
 export default function ComicCard({ comic }) {
-  const { title, slug, subtitle, panels, story } = comic.fields;
-  const { createdAt } = comic.sys;
-  console.log(comic);
+  const { title, slug, subtitle, panels, story, originalPublishDate } = comic.fields;
 
   function handleShare(e) {
     alert(`Sharing to ${e.target.name}`);
@@ -15,7 +13,7 @@ export default function ComicCard({ comic }) {
 
   return (
     <Wrapper>
-      <Date dateString={createdAt} />
+      <Date dateString={originalPublishDate} />
       <Link href={`/comics/${slug}`}>
         <a>
           <h2>{title}</h2>
