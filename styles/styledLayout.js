@@ -21,7 +21,7 @@ export const Main = styled.main`
   padding: 30px 120px 35px;
   max-height: 100vh;
   overflow: scroll;
-  max-width: ${768 + 120 + 120}px;
+  /* max-width: ${768 + 120 + 120}px; */
 
   @media (max-width: 1024px) {
     padding: 30px 60px 35px;
