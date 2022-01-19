@@ -56,7 +56,6 @@ export const Input = styled.input`
   padding: 8px;
   max-width: 100%;
   width: 100%;
-  /* box-sizing: border-box; */
 
   &:focus-visible {
     outline: #000 auto 1px;
