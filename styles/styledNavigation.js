@@ -54,6 +54,9 @@ export const InputWrapper = styled.div`
 export const Input = styled.input`
   border: none;
   padding: 8px;
+  max-width: 100%;
+  width: 100%;
+  /* box-sizing: border-box; */
 
   &:focus-visible {
     outline: #000 auto 1px;
@@ -68,6 +71,7 @@ export const Button = styled.button`
   background-color: #ff9900;
   border: none;
   width: 60px;
+  max-width: 100%;
   padding: 4px;
   cursor: pointer;
 `;
