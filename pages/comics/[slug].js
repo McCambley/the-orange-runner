@@ -5,6 +5,7 @@ import Story from "../../components/Story";
 import Comic from "../../components/Comic";
 import { createClient } from "contentful";
 import Fallback from "../../components/Fallback";
+import { Button, Navigation } from "../../styles/styledPost";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -60,9 +61,18 @@ export default function Post({ comic }) {
       </Head>
       {/* map over images from comicData to make articles */}
       {extendedComic ? <Story comic={comic} /> : <Comic comic={comic} />}
-      <Link href="/">
-        <a>← Back to home</a>
-      </Link>
+      <Navigation>
+        {/* TODO: make these function... */}
+        <Link href="/" passHref>
+          <Button>Back</Button>
+        </Link>
+        <Link href="/" passHref>
+          <Button>Random</Button>
+        </Link>
+        <Link href="/" passHref>
+          <Button>Next</Button>
+        </Link>
+      </Navigation>
     </Layout>
   );
 }

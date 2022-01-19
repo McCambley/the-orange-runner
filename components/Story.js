@@ -9,7 +9,6 @@ import { Hr, Quote, Wrapper } from "../styles/styledStory";
 
 export default function Story({ comic }) {
   const { originalPublishDate, title, slug } = comic.fields;
-  console.log(comic.fields);
   const renderOption = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
