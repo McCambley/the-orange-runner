@@ -1,11 +1,11 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { generateShimmer } from "../lib/shimmer";
-import Image from "next/image";
 import Panel from "./Panel";
 import Date from "./Date";
 import Link from "next/link";
 import Share from "./Share";
+import { Hr, Wrapper } from "../styles/styledStory";
 
 export default function Story({ comic }) {
   const { originalPublishDate, title, slug } = comic.fields;
@@ -28,7 +28,7 @@ export default function Story({ comic }) {
     },
   };
   return (
-    <>
+    <Wrapper>
       <Date dateString={originalPublishDate} />
       <Link href={`/comics/${slug}`}>
         <a>
@@ -36,7 +36,8 @@ export default function Story({ comic }) {
         </a>
       </Link>
       {documentToReactComponents(comic.fields.story, renderOption)}
+      <Hr />
       <Share />
-    </>
+    </Wrapper>
   );
 }
