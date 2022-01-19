@@ -1,7 +1,19 @@
-import { Wrapper, Twitter, Facebook, LinkedIn, Instagram, Copy, ShareIcon } from "../styles/styledShare";
+import {
+  Wrapper,
+  Twitter,
+  Facebook,
+  LinkedIn,
+  Instagram,
+  Copy,
+  ShareIcon,
+  FallBack,
+  Content,
+} from "../styles/styledShare";
 import Panel from "./Panel";
+import { useState } from "react";
 
 export default function Share() {
+  const [isOpen, setIsOpen] = useState(false);
   const title = "Sample Comic Title";
   const url = "https://the-orange-runner.vercel.app/";
   const text = "Relevant Orange Runner comic...";
@@ -25,8 +37,12 @@ export default function Share() {
         .catch(console.error);
     } else {
       // Fallback
-      alert("Sharing not supported, please select another option!");
+      setIsOpen(true);
     }
+  }
+
+  function handleFallbackShare() {
+    setIsOpen(false);
   }
 
   return (
@@ -37,6 +53,15 @@ export default function Share() {
       <Facebook name="Facebook" type="button" onClick={socialShare} />
       <Copy name="wherever you want!" type="button" onClick={socialShare} />
       <ShareIcon name="wherever you want!" type="button" onClick={handleShare} />
+      <FallBack $isOpen={isOpen} onClick={handleFallbackShare}>
+        <Content>
+          <Twitter name="Twitter" type="button" $fallback onClick={socialShare} />
+          <Instagram name="Instagram" type="button" $fallback onClick={socialShare} />
+          <LinkedIn name="LinkedIn" type="button" $fallback onClick={socialShare} />
+          <Facebook name="Facebook" type="button" $fallback onClick={socialShare} />
+          <Copy name="wherever you want!" type="button" $fallback onClick={socialShare} />
+        </Content>
+      </FallBack>
     </Wrapper>
   );
 }
