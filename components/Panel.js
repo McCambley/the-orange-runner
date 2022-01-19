@@ -6,8 +6,8 @@ export default function Panel({ src, width, height, alt, placeholder, blurDataUR
     <Wrapper>
       <Image
         src={src}
-        width={width}
-        height={height}
+        // width={width}
+        // height={height}
         alt={alt}
         placeholder={placeholder}
         blurDataURL={blurDataURL}
