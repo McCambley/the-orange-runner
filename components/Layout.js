@@ -1,10 +1,17 @@
 import Head from "next/head";
+import { useState } from "react";
 import Header from "./Header";
 import { Main, Wrapper } from "../styles/styledLayout";
 export const siteTitle = "The Orange Runner";
 export const siteDescription = "A comic about running";
 
 export default function Layout({ children, home }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggleOpen() {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <Wrapper>
       <Head>
@@ -23,7 +30,7 @@ export default function Layout({ children, home }) {
           rel="stylesheet"
         />
       </Head>
-      <Header />
+      <Header isOpen={isOpen} toggleOpen={toggleOpen} />
       <Main>{children}</Main>
     </Wrapper>
   );

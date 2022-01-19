@@ -4,13 +4,7 @@ import { Wrapper, Hamburger, LargeLogo, SmallLogo, StickyHeader } from "../style
 import Navigation from "./Navigation";
 import Image from "next/image";
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function toggleOpen() {
-    setIsOpen(!isOpen);
-  }
-
+export default function Header({ isOpen, toggleOpen }) {
   return (
     <Wrapper $isOpen={isOpen}>
       <Link href="/" passHref>
