@@ -2,7 +2,6 @@ import Layout from "../components/Layout";
 import { createClient } from "contentful";
 import Comic from "../components/Comic";
 import Story from "../components/Story";
-import ComicOld from "../components/ComicOld";
 
 export async function getStaticProps() {
   const client = createClient({
