@@ -1,15 +1,12 @@
 import Link from "next/link";
 import { generateShimmer } from "../lib/shimmer";
-import { Wrapper, Hr, ShareContainer, Twitter, Facebook, LinkedIn, Instagram, Copy } from "../styles/styledComicCard";
 import Panel from "./Panel";
 import Date from "./Date";
+import Share from "./Share";
+import { Wrapper, Hr } from "../styles/styledComic";
 
-export default function ComicCard({ comic }) {
+export default function Comic({ comic }) {
   const { title, slug, subtitle, panels, story, originalPublishDate } = comic.fields;
-
-  function handleShare(e) {
-    alert(`Sharing to ${e.target.name}`);
-  }
 
   return (
     <Wrapper>
@@ -36,13 +33,7 @@ export default function ComicCard({ comic }) {
         );
       })}
       <Hr />
-      <ShareContainer>
-        <Twitter name="Twitter" type="button" onClick={handleShare} />
-        <Instagram name="Instagram" type="button" onClick={handleShare} />
-        <LinkedIn name="LinkedIn" type="button" onClick={handleShare} />
-        <Facebook name="Facebook" type="button" onClick={handleShare} />
-        <Copy name="wherever you want!" type="button" onClick={handleShare} />
-      </ShareContainer>
+      <Share />
     </Wrapper>
   );
 }
