@@ -6,7 +6,7 @@ export const Wrapper = styled.section`
 
 export const AboutLink = styled.a`
   color: #ff9900;
-  transition: opacity 0.15 ease;
+  transition: opacity 0.15s ease;
 
   &:hover {
     opacity: 0.7;

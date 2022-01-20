@@ -8,9 +8,7 @@ import Share from "./Share";
 import { StoryLink, Hr, Quote, Wrapper } from "../styles/styledStory";
 
 export default function Story({ comic, standalone }) {
-  console.log(process.env.APP_URL);
   const { originalPublishDate, title, slug } = comic.fields;
-  console.log({ comic });
   const renderOption = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {

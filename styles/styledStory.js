@@ -8,7 +8,7 @@ export const Wrapper = styled.article`
 
 export const StoryLink = styled.a`
   color: #ff9900;
-  transition: opacity 0.15 ease;
+  transition: opacity 0.15s ease;
 
   &:hover {
     opacity: 0.7;
