@@ -39,6 +39,7 @@ export const Copy = styled(Icon)`
 `;
 
 export const ShareIcon = styled(Icon)`
+  display: ${(props) => (props.$showShare ? "block" : "none")};
   background-image: url("/images/share/share.svg");
 `;
 
