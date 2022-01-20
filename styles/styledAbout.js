@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  a {
-    color: #ff9900;
-  }
+  max-width: 65vh;
+`;
 
-  @media (max-width: 768px) {
-    max-width: 512px;
+export const AboutLink = styled.a`
+  color: #ff9900;
+  transition: opacity 0.15 ease;
+
+  &:hover {
+    opacity: 0.7;
   }
 `;

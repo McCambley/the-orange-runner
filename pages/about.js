@@ -1,9 +1,9 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { generateShimmer } from "../lib/shimmer";
 import Layout from "../components/Layout";
 import { createClient } from "contentful";
-import { Wrapper } from "../styles/styledAbout";
+import { Wrapper, AboutLink } from "../styles/styledAbout";
 import Panel from "../components/Panel";
 
 export async function getStaticProps() {
@@ -36,6 +36,19 @@ export default function About({ about }) {
             placeholder="blur"
             blurDataURL={generateShimmer(width, height)}
           />
+        );
+      },
+      [INLINES.HYPERLINK]: ({ data }, children) => {
+        // const { value } = node.content[0].content[0];
+        return (
+          <AboutLink
+            href={data.uri}
+            // TODO pull this url out into an env var
+            target={`${data.uri.startsWith(process.env.APP_URL) ? "_self" : "_blank"}`}
+            rel={`${data.uri.startsWith(process.env.APP_URL) ? "" : "noopener noreferrer"}`}
+          >
+            {children}
+          </AboutLink>
         );
       },
     },
