@@ -1,14 +1,16 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { generateShimmer } from "../lib/shimmer";
 import Panel from "./Panel";
 import Date from "./Date";
 import Link from "next/link";
 import Share from "./Share";
-import { Hr, Quote, Wrapper } from "../styles/styledStory";
+import { StoryLink, Hr, Quote, Wrapper } from "../styles/styledStory";
 
-export default function Story({ comic }) {
+export default function Story({ comic, standalone }) {
+  console.log(process.env.APP_URL);
   const { originalPublishDate, title, slug } = comic.fields;
+  console.log({ comic });
   const renderOption = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
@@ -29,16 +31,33 @@ export default function Story({ comic }) {
         const { value } = node.content[0].content[0];
         return <Quote>{`"${value}"`}</Quote>;
       },
+      [INLINES.HYPERLINK]: ({ data }, children) => {
+        // const { value } = node.content[0].content[0];
+        return (
+          <StoryLink
+            href={data.uri}
+            // TODO pull this url out into an env var
+            target={`${data.uri.startsWith(process.env.APP_URL) ? "_self" : "_blank"}`}
+            rel={`${data.uri.startsWith(process.env.APP_URL) ? "" : "noopener noreferrer"}`}
+          >
+            {children}
+          </StoryLink>
+        );
+      },
     },
   };
   return (
     <Wrapper>
       <Date dateString={originalPublishDate} />
-      <Link href={`/comics/${slug}`}>
-        <a>
-          <h2>{title}</h2>
-        </a>
-      </Link>
+      {standalone ? (
+        <h1>{title}</h1>
+      ) : (
+        <Link href={`/comics/${slug}`} passHref>
+          <a>
+            <h2>{title}</h2>
+          </a>
+        </Link>
+      )}
       {documentToReactComponents(comic.fields.story, renderOption)}
       <Hr />
       <Share />

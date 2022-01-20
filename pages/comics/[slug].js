@@ -60,7 +60,7 @@ export default function Post({ comic }) {
         <title>{title}</title>
       </Head>
       {/* map over images from comicData to make articles */}
-      {extendedComic ? <Story comic={comic} /> : <Comic comic={comic} />}
+      {extendedComic ? <Story comic={comic} standalone /> : <Comic comic={comic} standalone />}
       <Navigation>
         {/* TODO: make these function... */}
         <Link href="/" passHref>

@@ -20,7 +20,7 @@ h1 {
     margin-bottom: 20px;
     font-family: "Source Sans Pro", sans-serif; 
     font-weight: 900;
-
+    
     @media (max-width: 600px) {
         font-size: 28px;
         margin-bottom: 12px;
@@ -32,12 +32,12 @@ h2 {
     margin-bottom: 8px;
     font-family: "Source Sans Pro", sans-serif; 
     font-weight: 900;
-
+    
     @media (max-width: 600px) {
         font-size: 20px;
     }
-
-   
+    
+    
 }
 
 h3 {
@@ -82,6 +82,7 @@ a {
     font-family: "PT Serif", serif;
     font-weight: 400;
     transition: color .15s ease;
+    
     
     &:hover {
         color: #FF9900;

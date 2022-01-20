@@ -4,8 +4,14 @@ export const Wrapper = styled.article`
   margin-bottom: 16px;
   width: 100%;
   max-width: 65vh;
+`;
 
-  quote {
+export const StoryLink = styled.a`
+  color: #ff9900;
+  transition: opacity 0.15 ease;
+
+  &:hover {
+    opacity: 0.7;
   }
 `;
 
