@@ -40,17 +40,17 @@ export default function Navigation({ isOpen }) {
       </Form>
       <List>
         <Item>
-          <Link href="/">
+          <Link href="/" passHref>
             <NavLink>Home</NavLink>
           </Link>
         </Item>
         <Item>
-          <Link href="/about">
+          <Link href="/about" passHref>
             <NavLink>About</NavLink>
           </Link>
         </Item>
         <Item>
-          <Link href="/favorites">
+          <Link href="/favorites" passHref>
             <NavLink>Favorites</NavLink>
           </Link>
         </Item>
