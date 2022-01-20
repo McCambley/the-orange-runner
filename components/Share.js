@@ -10,8 +10,7 @@ import {
   Content,
 } from "../styles/styledShare";
 import Panel from "./Panel";
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useState, useEffect } from "react";
 
 export default function Share() {
   const [isOpen, setIsOpen] = useState(false);
