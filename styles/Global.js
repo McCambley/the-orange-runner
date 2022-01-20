@@ -36,8 +36,6 @@ h2 {
     @media (max-width: 600px) {
         font-size: 20px;
     }
-    
-    
 }
 
 h3 {

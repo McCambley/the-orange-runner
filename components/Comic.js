@@ -5,17 +5,21 @@ import Date from "./Date";
 import Share from "./Share";
 import { Wrapper, Hr } from "../styles/styledComic";
 
-export default function Comic({ comic }) {
+export default function Comic({ comic, standalone }) {
   const { title, slug, subtitle, panels, story, originalPublishDate } = comic.fields;
 
   return (
     <Wrapper>
       <Date dateString={originalPublishDate} />
-      <Link href={`/comics/${slug}`}>
-        <a>
-          <h2>{title}</h2>
-        </a>
-      </Link>
+      {standalone ? (
+        <h1>{title}</h1>
+      ) : (
+        <Link href={`/comics/${slug}`}>
+          <a>
+            <h2>{title}</h2>
+          </a>
+        </Link>
+      )}
       {panels.map((panel) => {
         return (
           <Panel
