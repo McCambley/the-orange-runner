@@ -59,6 +59,7 @@ export default function Post({ comic }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={subtitle ? subtitle : "A relevant Orange Runner comic..."}></meta>
+        <meta name="keywords" content={comic.fields.keywords.join(", ").toLowerCase()}></meta>
         <meta property="og:title" content={title} />
         <meta property="og:description" content={subtitle} />
         <meta property="og:site_name" content={title} />
