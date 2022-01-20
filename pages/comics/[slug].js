@@ -52,8 +52,8 @@ export async function getStaticProps({ params }) {
 
 export default function Post({ comic }) {
   if (!comic) return <Fallback />;
-  const { title, subtitle, extendedComic } = comic.fields;
-
+  const { title, subtitle, extendedComic, panels } = comic.fields;
+  console.log(panels[0].fields.file.url);
   return (
     <Layout home={false}>
       <Head>
@@ -65,6 +65,8 @@ export default function Post({ comic }) {
         <meta property="og:site_name" content={title} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={subtitle} />
+        <meta property="og:image" content={!!panels[0] && `http:${panels[0].fields.file.url}`} />
+        <meta name="twitter:image" content={!!panels[0] && `http:${panels[0].fields.file.url}`} />
       </Head>
       {/* map over images from comicData to make articles */}
       {extendedComic ? <Story comic={comic} standalone /> : <Comic comic={comic} standalone />}
