@@ -109,15 +109,12 @@ export default function Post({ comic, slugs, previousSlug, nextSlug }) {
       {/* map over images from comicData to make articles */}
       {extendedComic ? <Story comic={comic} standalone /> : <Comic comic={comic} standalone />}
       <Navigation>
-        {/* TODO: make these function... */}
         <Link href={`/comics/${previousSlug}`} passHref>
           <LinkButton>Previous</LinkButton>
         </Link>
-        {/* <Link href="/" passHref> */}
         <RandomButton type="button" name="random" onClick={getRandomComic}>
           Random
         </RandomButton>
-        {/* </Link> */}
         <Link href={`/comics/${nextSlug}`} passHref>
           <LinkButton>Next</LinkButton>
         </Link>
