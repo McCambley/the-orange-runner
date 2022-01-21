@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
-import { Loading, StatusSpinner } from "../../styles/styledSearch";
+import Loading from "../../components/Loading";
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,14 +21,5 @@ export default function Search() {
       });
   }, []);
 
-  return (
-    <Layout>
-      {loading && (
-        <Loading>
-          <StatusSpinner />
-          {/* {`Searching for: ${router.query.name}`} */}
-        </Loading>
-      )}
-    </Layout>
-  );
+  return <Layout>{true && <Loading />}</Layout>;
 }
