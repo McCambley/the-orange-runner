@@ -44,8 +44,8 @@ export default function About({ about }) {
           <AboutLink
             href={data.uri}
             // TODO pull this url out into an env var
-            target={`${data.uri.startsWith(process.env.APP_URL) ? "_self" : "_blank"}`}
-            rel={`${data.uri.startsWith(process.env.APP_URL) ? "" : "noopener noreferrer"}`}
+            target={`${data.uri.startsWith(process.env.NEXT_PUBLIC_APP_URL) ? "_self" : "_blank"}`}
+            rel={`${data.uri.startsWith(process.env.NEXT_PUBLIC_APP_URL) ? "" : "noopener noreferrer"}`}
           >
             {children}
           </AboutLink>

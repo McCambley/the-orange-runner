@@ -40,7 +40,7 @@ export default function Share({ slug }) {
   }
 
   function handleCopy(e) {
-    navigator.clipboard.writeText(`${process.env.APP_URL}/comics/${slug}`).then(() => {
+    navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`).then(() => {
       setShowTooltip(true);
       setTimeout(() => {
         setShowTooltip(false);
