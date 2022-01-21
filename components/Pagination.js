@@ -11,8 +11,9 @@ export default function Pagination({ slug, slugs, previousSlug, nextSlug }) {
     scrollToTop();
   }, [router]);
   function getRandomSlug() {
+    if (slugs.length <= 1) return slug;
     const randomSlug = slugs[Math.floor(Math.random() * slugs.length)];
-    if (slugs.indexOf(randomSlug) === slugs.indexOf(slug)) {
+    if (randomSlug === slug) {
       console.log("Trying again...");
       return getRandomSlug();
     }
