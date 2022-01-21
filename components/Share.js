@@ -49,16 +49,17 @@ export default function Share({ slug, title, subtitle }) {
 
   return (
     <Wrapper>
-      <Facebook url={`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`} />
+      <Facebook name="facebook" url={`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`} />
       <Twitter
+        name="twitter"
         url={`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`}
         // title={`${title}: ${subtitle}`}
         title={`${title} - The Orange Runner`}
         via="theorangerunner"
       />
-      <LinkedIn url={`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`} />
-      {showCopy && <Copy name="wherever you want!" type="button" $showTooltip={showTooltip} onClick={handleCopy} />}
-      {showShare && <ShareIcon name="wherever you want!" type="button" onClick={handleShare} />}{" "}
+      <LinkedIn name="linkedin" url={`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`} />
+      {showCopy && <Copy name="copy" type="button" $showTooltip={showTooltip} onClick={handleCopy} />}
+      {showShare && <ShareIcon name="share" type="button" onClick={handleShare} />}{" "}
     </Wrapper>
   );
 }
