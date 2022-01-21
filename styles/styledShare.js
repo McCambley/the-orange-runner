@@ -19,9 +19,10 @@ const IconStyles = css`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    width: 32px;
-    height: 32px;
-    margin-right: 16px;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    border-radius: 4px;
   }
 `;
 
