@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -6,9 +7,9 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-export const Icon = styled.button`
+const IconStyles = css`
   /* width: ${(props) => (props.$fallback ? "36px" : "20px")};
-  height: ${(props) => (props.$fallback ? "36px" : "20px")}; */
+height: ${(props) => (props.$fallback ? "36px" : "20px")}; */
   width: 20px;
   height: 20px;
   background-position: center;
@@ -18,6 +19,7 @@ export const Icon = styled.button`
   border: none;
   margin-right: 8px;
   cursor: pointer;
+  outline: 1px solid red;
 
   @media (max-width: 768px) {
     width: 32px;
@@ -26,21 +28,28 @@ export const Icon = styled.button`
   }
 `;
 
-export const Twitter = styled(Icon)`
+export const Icon = styled.button`
+  ${IconStyles}
+`;
+
+export const Twitter = styled(TwitterShareButton)`
+  ${IconStyles}
   background-image: url("/images/share/twitter.svg");
 `;
 
-export const Facebook = styled(Icon)`
+export const Facebook = styled(FacebookShareButton)`
+  ${IconStyles}
   background-image: url("/images/share/facebook.svg");
 `;
 
-export const Instagram = styled(Icon)`
-  background-image: url("/images/share/instagram.svg");
-`;
-
-export const LinkedIn = styled(Icon)`
+export const LinkedIn = styled(LinkedinShareButton)`
+  ${IconStyles}
   background-image: url("/images/share/linkedin.svg");
 `;
+
+// export const Instagram = styled(Icon)`
+//   background-image: url("/images/share/instagram.svg");
+// `;
 
 export const Copy = styled(Icon)`
   background-image: url("/images/share/copy.svg");
@@ -53,7 +62,7 @@ export const Copy = styled(Icon)`
   padding: 8px 12px;
   border-radius: 8px;
   box-sizing: border-box;
-  background-color: rgba(0,0,0,.9);
+  background-color: #000;
   font-family: "Source Sans Pro", sans-serif; 
   font-weight: 900;
   color: #fff;

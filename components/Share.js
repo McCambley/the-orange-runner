@@ -3,7 +3,7 @@ import {
   Twitter,
   Facebook,
   LinkedIn,
-  Instagram,
+  // Instagram,
   Copy,
   ShareIcon,
   FallBack,
@@ -34,10 +34,6 @@ export default function Share({ slug }) {
       setShowCopy(false);
     }
   }, []);
-
-  function socialShare(e) {
-    alert(`Sharing to ${e.target.name}`);
-  }
 
   function handleCopy(e) {
     navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`).then(() => {
@@ -74,9 +70,9 @@ export default function Share({ slug }) {
   return (
     <Wrapper>
       {/* <Instagram name="Instagram" type="button" onClick={socialShare} /> */}
-      <Facebook name="Facebook" type="button" onClick={socialShare} />
-      <Twitter name="Twitter" type="button" onClick={socialShare} />
-      <LinkedIn name="LinkedIn" type="button" onClick={socialShare} />
+      <Facebook name="Facebook" type="button" />
+      <Twitter name="Twitter" type="button" />
+      <LinkedIn name="LinkedIn" type="button" />
       {showCopy && (
         <Copy name="wherever you want!" type="button" $showTooltip={showTooltip} onClick={handleCopy} />
       )}{" "}
