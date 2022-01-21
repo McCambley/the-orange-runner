@@ -21,6 +21,10 @@ const buttonStyles = css`
     background: #ff9900;
     color: #fff;
   }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 export const LinkButton = styled.a`
   ${buttonStyles}
@@ -37,4 +41,8 @@ export const Navigation = styled.nav`
   gap: 16px;
   width: 100%;
   max-width: 65vh;
+
+  @media (max-width: 480px) {
+    padding: 12px 0px 0;
+  }
 `;
