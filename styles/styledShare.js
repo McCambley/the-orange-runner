@@ -17,6 +17,7 @@ const IconStyles = css`
   border: none;
   margin-right: 8px;
   cursor: pointer;
+  user-select: none;
 
   @media (max-width: 768px) {
     width: 24px;

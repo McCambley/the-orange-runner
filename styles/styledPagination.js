@@ -16,6 +16,7 @@ const buttonStyles = css`
   justify-self: center;
   cursor: pointer;
   border: none;
+  user-select: none;
 
   &:hover {
     background: #ff9900;
