@@ -8,7 +8,7 @@ import Share from "./Share";
 import { StoryLink, Hr, Quote, Wrapper } from "../styles/styledStory";
 
 export default function Story({ comic, standalone }) {
-  const { originalPublishDate, title, slug } = comic.fields;
+  const { originalPublishDate, subtitle, title, slug } = comic.fields;
   const renderOption = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
@@ -58,7 +58,7 @@ export default function Story({ comic, standalone }) {
       )}
       {documentToReactComponents(comic.fields.story, renderOption)}
       <Hr />
-      <Share slug={slug} />
+      <Share slug={slug} title={title} subtitle={subtitle} />
     </Wrapper>
   );
 }

@@ -52,7 +52,7 @@ export async function getStaticProps({ params }) {
 
 export default function Post({ comic }) {
   if (!comic) return <Fallback />;
-  const { title, subtitle, extendedComic, panels } = comic.fields;
+  const { title, subtitle = "", extendedComic, panels } = comic.fields;
   return (
     <Layout home={false}>
       <Head>

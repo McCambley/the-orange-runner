@@ -1,26 +1,10 @@
-import {
-  Wrapper,
-  Twitter,
-  Facebook,
-  LinkedIn,
-  // Instagram,
-  Copy,
-  ShareIcon,
-  FallBack,
-  Content,
-} from "../styles/styledShare";
-import Panel from "./Panel";
+import { Wrapper, Twitter, Facebook, LinkedIn, Copy, ShareIcon } from "../styles/styledShare";
 import { useState, useEffect } from "react";
 
-export default function Share({ slug }) {
-  // const [isOpen, setIsOpen] = useState(false);
+export default function Share({ slug, title, subtitle }) {
   const [showShare, setShowShare] = useState(true);
   const [showCopy, setShowCopy] = useState(true);
   const [showTooltip, setShowTooltip] = useState(false);
-
-  const title = "Sample Comic Title";
-  const url = "https://the-orange-runner.vercel.app/";
-  const text = "Relevant Orange Runner comic...";
 
   useEffect(() => {
     if (!(navigator && navigator.share)) {
@@ -49,9 +33,9 @@ export default function Share({ slug }) {
       // Share API is supported
       navigator
         .share({
-          title,
-          url,
-          text,
+          title: `${title} - The Orange Runner`,
+          url: `${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`,
+          text: subtitle,
         })
         .then(() => {
           console.log("Thanks for sharing!");
@@ -59,35 +43,22 @@ export default function Share({ slug }) {
         .catch(console.error);
     } else {
       // Fallback
-      setIsOpen(true);
+      console.log("Uh oh! Looks like something went wrong!");
     }
   }
 
-  // function handleFallbackShare() {
-  //   setIsOpen(false);
-  // }
-
   return (
     <Wrapper>
-      {/* <Instagram name="Instagram" type="button" onClick={socialShare} /> */}
-      <Facebook name="Facebook" type="button" />
-      <Twitter name="Twitter" type="button" />
-      <LinkedIn name="LinkedIn" type="button" />
-      {showCopy && (
-        <Copy name="wherever you want!" type="button" $showTooltip={showTooltip} onClick={handleCopy} />
-      )}{" "}
+      <Facebook url={`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`} />
+      <Twitter
+        url={`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`}
+        // title={`${title}: ${subtitle}`}
+        title={`${title} - The Orange Runner`}
+        via="theorangerunner"
+      />
+      <LinkedIn url={`${process.env.NEXT_PUBLIC_APP_URL}/comics/${slug}`} />
+      {showCopy && <Copy name="wherever you want!" type="button" $showTooltip={showTooltip} onClick={handleCopy} />}
       {showShare && <ShareIcon name="wherever you want!" type="button" onClick={handleShare} />}{" "}
-      {/* <ShareIcon name="wherever you want!" type="button" $showShare={true} onClick={handleShare} /> */}
-      {/* I think not rendering the share button is a better option than a redundant share box */}
-      {/* <FallBack $isOpen={isOpen} onClick={handleFallbackShare}>
-        <Content>
-          <Twitter name="Twitter" type="button" $fallback onClick={socialShare} />
-          <Instagram name="Instagram" type="button" $fallback onClick={socialShare} />
-          <LinkedIn name="LinkedIn" type="button" $fallback onClick={socialShare} />
-          <Facebook name="Facebook" type="button" $fallback onClick={socialShare} />
-          <Copy name="wherever you want!" type="button" $fallback onClick={socialShare} />
-        </Content>
-      </FallBack> */}
     </Wrapper>
   );
 }

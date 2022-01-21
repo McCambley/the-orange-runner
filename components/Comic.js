@@ -6,7 +6,7 @@ import Share from "./Share";
 import { Wrapper, Hr } from "../styles/styledComic";
 
 export default function Comic({ comic, standalone }) {
-  const { title, slug, subtitle, panels, story, originalPublishDate } = comic.fields;
+  const { title, slug, subtitle, panels, originalPublishDate } = comic.fields;
 
   return (
     <Wrapper>
@@ -37,7 +37,7 @@ export default function Comic({ comic, standalone }) {
         );
       })}
       <Hr />
-      <Share slug={slug} />
+      <Share slug={slug} title={title} subtitle={subtitle} />
     </Wrapper>
   );
 }

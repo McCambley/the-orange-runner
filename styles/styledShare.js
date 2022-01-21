@@ -8,8 +8,6 @@ export const Wrapper = styled.div`
 `;
 
 const IconStyles = css`
-  /* width: ${(props) => (props.$fallback ? "36px" : "20px")};
-height: ${(props) => (props.$fallback ? "36px" : "20px")}; */
   width: 20px;
   height: 20px;
   background-position: center;
@@ -47,10 +45,6 @@ export const LinkedIn = styled(LinkedinShareButton)`
   background-image: url("/images/share/linkedin.svg");
 `;
 
-// export const Instagram = styled(Icon)`
-//   background-image: url("/images/share/instagram.svg");
-// `;
-
 export const Copy = styled(Icon)`
   background-image: url("/images/share/copy.svg");
   position: relative;
@@ -79,36 +73,5 @@ export const Copy = styled(Icon)`
 `;
 
 export const ShareIcon = styled(Icon)`
-  /* display: ${(props) => (props.$showShare ? "block" : "none")}; */
   background-image: url("/images/share/share.svg");
-`;
-
-export const FallBack = styled.div`
-  display: ${(props) => (props.$isOpen ? "flex" : "none")};
-  display: flex;
-  transform: ${(props) => (props.$isOpen ? "translateX(0)" : "translateX(105%)")};
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 3;
-  height: 100%;
-  width: 100%;
-  padding: 16px 28px;
-  transition: transform 0.5s ease;
-`;
-
-export const Content = styled.div`
-  width: 100%;
-  height: 70px;
-  max-width: 400px;
-  border-radius: 12px;
-  background-color: #fff;
-  padding: 8px 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 `;
