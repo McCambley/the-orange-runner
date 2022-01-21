@@ -21,7 +21,7 @@ export default function Header() {
         <StickyHeader>
           <Link href="/" passHref>
             <SmallLogo>
-              <Image src="/images/logo.png" height={512} width={512} alt="The Orange runner" />
+              <Image src="/images/logo.png" height={76} width={76} alt="The Orange runner" />
             </SmallLogo>
           </Link>
           <Link href="/" passHref>
