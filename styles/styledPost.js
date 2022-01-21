@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Button = styled.a`
+const buttonStyles = css`
   display: inline-block;
   min-width: 100%;
   padding: 8px 12px;
@@ -14,11 +14,20 @@ export const Button = styled.a`
   transition: background-color 0.15s ease;
   font-size: 14px;
   justify-self: center;
+  cursor: pointer;
+  border: none;
 
   &:hover {
     background: #ff9900;
     color: #fff;
   }
+`;
+export const LinkButton = styled.a`
+  ${buttonStyles}
+`;
+
+export const RandomButton = styled.button`
+  ${buttonStyles}
 `;
 
 export const Navigation = styled.nav`

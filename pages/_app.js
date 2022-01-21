@@ -1,12 +1,14 @@
 import { GlobalStyle } from "../styles/Global";
-import { SlugProvider } from "../context/slugContext";
+// import { SlugProvider } from "../context/slugContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SlugProvider>
+    <>
+      {/* <SlugProvider> */}
       <GlobalStyle />
       <Component {...pageProps} />
-    </SlugProvider>
+      {/* </SlugProvider> */}
+    </>
   );
 }
 

@@ -5,7 +5,9 @@ import Story from "../../components/Story";
 import Comic from "../../components/Comic";
 import { createClient } from "contentful";
 import Fallback from "../../components/Fallback";
-import { Button, Navigation } from "../../styles/styledPost";
+import { LinkButton, RandomButton, Navigation } from "../../styles/styledPost";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -30,12 +32,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await client.getEntries({
+  const matchingComics = await client.getEntries({
     content_type: "comic",
     "fields.slug": params.slug,
   });
 
-  if (!res.items.length) {
+  const allComics = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate" });
+
+  if (!matchingComics.items.length || !allComics.items.length) {
     return {
       redirect: {
         destination: "/",
@@ -44,15 +48,50 @@ export async function getStaticProps({ params }) {
     };
   }
 
+  const slugs = allComics.items.map((comic) => comic.fields.slug);
+  const slugIndex = slugs.indexOf(params.slug);
+  const nextSlug = slugIndex !== 0 ? slugs[slugIndex - 1] : slugs[slugs.length - 1];
+  const previousSlug = slugIndex !== slugs.length - 1 ? slugs[slugIndex + 1] : slugs[0];
+
   return {
-    props: { comic: res.items[0] },
+    props: { comic: matchingComics.items[0], previousSlug, nextSlug, slugs },
     revalidate: 10,
   };
 }
 
-export default function Post({ comic }) {
+export default function Post({ comic, slugs, previousSlug, nextSlug }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    scrollToTop();
+  }, [router]);
+
   if (!comic) return <Fallback />;
-  const { title, subtitle = "", extendedComic, panels } = comic.fields;
+
+  const { title, subtitle = "", extendedComic, panels, slug } = comic.fields;
+
+  function getRandomSlug() {
+    const randomSlug = slugs[Math.floor(Math.random() * slugs.length)];
+    if (slugs.indexOf(randomSlug) === slugs.indexOf(slug)) {
+      console.log("Trying again...");
+      return getRandomSlug();
+    }
+    console.log("Got it!");
+    return randomSlug;
+  }
+
+  function getRandomComic(e) {
+    router.push(`/comics/${getRandomSlug()}`);
+  }
+
+  function scrollToTop() {
+    document.querySelector("main").scroll({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  }
+
   return (
     <Layout home={false}>
       <Head>
@@ -71,14 +110,16 @@ export default function Post({ comic }) {
       {extendedComic ? <Story comic={comic} standalone /> : <Comic comic={comic} standalone />}
       <Navigation>
         {/* TODO: make these function... */}
-        <Link href="/" passHref>
-          <Button>Back</Button>
+        <Link href={`/comics/${previousSlug}`} passHref>
+          <LinkButton>Previous</LinkButton>
         </Link>
-        <Link href="/" passHref>
-          <Button>Random</Button>
-        </Link>
-        <Link href="/" passHref>
-          <Button>Next</Button>
+        {/* <Link href="/" passHref> */}
+        <RandomButton type="button" name="random" onClick={getRandomComic}>
+          Random
+        </RandomButton>
+        {/* </Link> */}
+        <Link href={`/comics/${nextSlug}`} passHref>
+          <LinkButton>Next</LinkButton>
         </Link>
       </Navigation>
     </Layout>
