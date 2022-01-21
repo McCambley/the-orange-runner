@@ -11,7 +11,6 @@ export default function Layout({ children, home }) {
         <title>{siteTitle}</title>
         <meta name="description" content={siteDescription} />
         <meta name="keywords" content="Running, Training, Comics, Art, Coffee"></meta>
-
         <meta property="og:type" content="article" />
         <meta property="og:title" content={siteTitle} />
         <meta property="og:description" content={siteDescription} />
@@ -21,7 +20,6 @@ export default function Layout({ children, home }) {
         />
         <meta property="og:url" content="https://the-orange-runner.vercel.app/" />
         <meta property="og:site_name" content={siteTitle} />
-
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={siteTitle} />
         <meta name="twitter:description" content={siteDescription} />
@@ -31,7 +29,6 @@ export default function Layout({ children, home }) {
         />
         <meta name="twitter:site" content="@JakeMcCambley" />
         <meta name="twitter:creator" content="@JakeMcCambley" />
-
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

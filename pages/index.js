@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import { createClient } from "contentful";
 import Comic from "../components/Comic";
 import Story from "../components/Story";
+import { useEffect } from "react";
+import { useSlugs } from "../context/slugContext";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -20,16 +22,20 @@ export async function getStaticProps() {
 }
 
 export default function Home({ comics }) {
-  // comics.forEach((comic) => {
-  //   console.log(comic.fields.keywords.join(", ").toLowerCase());
-  // });
+  const { slugs, setSlugs } = useSlugs();
+  console.log(comics);
+
+  useEffect(() => {
+    setSlugs(comics.map((comic) => comic.fields.slug));
+  }, [comics]);
+
   return (
     <Layout home={true}>
       {comics.map((comic) =>
         comic.fields.extendedComic ? (
-          <Story comic={comic} key={comic.sys.id} />
+          <Story comic={comic} key={comic.sys.id} slugs={slugs} />
         ) : (
-          <Comic comic={comic} key={comic.sys.id} />
+          <Comic comic={comic} key={comic.sys.id} slugs={slugs} />
         )
       )}
     </Layout>
