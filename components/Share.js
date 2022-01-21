@@ -12,9 +12,11 @@ import {
 import Panel from "./Panel";
 import { useState, useEffect } from "react";
 
-export default function Share() {
+export default function Share({ slug }) {
   const [isOpen, setIsOpen] = useState(false);
   const [showShare, setShowShare] = useState(true);
+  const [showCopy, setShowCopy] = useState(true);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const title = "Sample Comic Title";
   const url = "https://the-orange-runner.vercel.app/";
@@ -26,8 +28,24 @@ export default function Share() {
     }
   }, []);
 
+  useEffect(() => {
+    console.log("here");
+    if (!(navigator && navigator.clipboard)) {
+      setShowCopy(false);
+    }
+  }, []);
+
   function socialShare(e) {
     alert(`Sharing to ${e.target.name}`);
+  }
+
+  function handleCopy(e) {
+    navigator.clipboard.writeText(`${process.env.APP_URL}/comics/${slug}`).then(() => {
+      setShowTooltip(true);
+      setTimeout(() => {
+        setShowTooltip(false);
+      }, 1000);
+    });
   }
 
   function handleShare() {
@@ -49,18 +67,21 @@ export default function Share() {
     }
   }
 
-  function handleFallbackShare() {
-    setIsOpen(false);
-  }
+  // function handleFallbackShare() {
+  //   setIsOpen(false);
+  // }
 
   return (
     <Wrapper>
-      <Twitter name="Twitter" type="button" onClick={socialShare} />
-      <Instagram name="Instagram" type="button" onClick={socialShare} />
-      <LinkedIn name="LinkedIn" type="button" onClick={socialShare} />
+      {/* <Instagram name="Instagram" type="button" onClick={socialShare} /> */}
       <Facebook name="Facebook" type="button" onClick={socialShare} />
-      <Copy name="wherever you want!" type="button" onClick={socialShare} />
-      <ShareIcon name="wherever you want!" type="button" $showShare={showShare} onClick={handleShare} />
+      <Twitter name="Twitter" type="button" onClick={socialShare} />
+      <LinkedIn name="LinkedIn" type="button" onClick={socialShare} />
+      {showCopy && (
+        <Copy name="wherever you want!" type="button" $showTooltip={showTooltip} onClick={handleCopy} />
+      )}{" "}
+      {showShare && <ShareIcon name="wherever you want!" type="button" onClick={handleShare} />}{" "}
+      {/* <ShareIcon name="wherever you want!" type="button" $showShare={true} onClick={handleShare} /> */}
       {/* I think not rendering the share button is a better option than a redundant share box */}
       {/* <FallBack $isOpen={isOpen} onClick={handleFallbackShare}>
         <Content>

@@ -58,7 +58,7 @@ export default function Story({ comic, standalone }) {
       )}
       {documentToReactComponents(comic.fields.story, renderOption)}
       <Hr />
-      <Share />
+      <Share slug={slug} />
     </Wrapper>
   );
 }

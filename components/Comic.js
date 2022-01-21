@@ -37,7 +37,7 @@ export default function Comic({ comic, standalone }) {
         );
       })}
       <Hr />
-      <Share />
+      <Share slug={slug} />
     </Wrapper>
   );
 }
