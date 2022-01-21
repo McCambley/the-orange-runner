@@ -13,7 +13,7 @@ import Panel from "./Panel";
 import { useState, useEffect } from "react";
 
 export default function Share({ slug }) {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [showShare, setShowShare] = useState(true);
   const [showCopy, setShowCopy] = useState(true);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -44,7 +44,7 @@ export default function Share({ slug }) {
       setShowTooltip(true);
       setTimeout(() => {
         setShowTooltip(false);
-      }, 1000);
+      }, 2000);
     });
   }
 

@@ -47,13 +47,23 @@ export const Copy = styled(Icon)`
   position: relative;
 
   &:before {
-  content: 'Copied!';
-  background-color: #000;
+  content: 'Link Copied to clipboard!';
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,.9);
+  font-family: "Source Sans Pro", sans-serif; 
+  font-weight: 900;
   color: #fff;
-  top: 1em;
+  top: -52px;
+  left: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translate(-75%,0);
   position: absolute;
   white-space: nowrap;
-  width: 200px;
+
   opacity: ${(props) => (props.$showTooltip ? 1 : 0)};
   visibility: ${(props) => (props.$showTooltip ? "visible" : "hidden")};
   transition: opacity 0.3s ease, visibility 0.3s ease;
