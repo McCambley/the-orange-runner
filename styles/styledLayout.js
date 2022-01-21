@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 316px 1fr;
+  min-height: 100vh;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
