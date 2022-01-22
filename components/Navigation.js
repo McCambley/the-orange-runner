@@ -7,6 +7,7 @@ export default function Navigation({ isOpen }) {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
+  const { keyword, setKeyword, loading, error, searchResults, search } = useSearch();
 
   useEffect(() => {
     setSearchPlaceholder("Prefontaine");
@@ -14,7 +15,8 @@ export default function Navigation({ isOpen }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    router.push(`/search?keyword=${searchValue}`);
+    search(keyword);
+    router.push(`/search`);
   }
 
   function handleChange(e) {

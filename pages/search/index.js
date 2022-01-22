@@ -3,6 +3,7 @@ import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 import Loading from "../../components/Loading";
 import Comic from "../../components/Comic";
+import Story from "../../components/Story";
 import { useSearch } from "../../context/searchContext";
 
 // export async function getServerSideProps(context) {
@@ -36,12 +37,19 @@ export default function Search({ comic }) {
   // useEffect(() => {
   //   if (!router.isReady) return;
   //   setLoading(true);
-  // }, [router]);
+  // }, [searchResults]);
 
   return (
     <Layout>
       {loading && <Loading />}
-      {!true && <Comic standalone={false} comic={comic} />}
+      {!loading &&
+        searchResults.map((comic) =>
+          comic.fields.extendedComic ? (
+            <Story comic={comic} key={comic.sys.id} />
+          ) : (
+            <Comic comic={comic} key={comic.sys.id} />
+          )
+        )}
     </Layout>
   );
 }
