@@ -42,14 +42,14 @@ export default function Search({ comic }) {
   return (
     <Layout>
       {loading && <Loading />}
-      {!loading &&
+      {/* {!loading &&
         searchResults.map((comic) =>
           comic.fields.extendedComic ? (
             <Story comic={comic} key={comic.sys.id} />
           ) : (
             <Comic comic={comic} key={comic.sys.id} />
           )
-        )}
+        )} */}
     </Layout>
   );
 }

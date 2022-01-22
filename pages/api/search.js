@@ -1,7 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { client } from "../../utils/client";
 
-export default function searchHandler(req, res) {
+export default async function searchHandler(req, res) {
   const { keyword } = req.query;
-  res.status(200).json([{ comic: "thing" }]);
+
+  const data = await client.getEntries({ content_type: "comic", "fields.keywords": keyword });
+
+  console.log({ keyword: req.query, data, stuff: JSON.stringify(data.items) });
+
+  if (data.total < 1) {
+    return res.status(404).send({ message: "No results found" });
+  }
+
+  return res.status(200).json(data);
 }

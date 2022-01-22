@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { useSearch } from "../context/searchContext";
 import { List, Item, Wrapper, NavLink, Form, Label, InputWrapper, Input, Button } from "../styles/styledNavigation";
@@ -7,7 +6,6 @@ import { List, Item, Wrapper, NavLink, Form, Label, InputWrapper, Input, Button 
 export default function Navigation({ isOpen }) {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  const router = useRouter();
   const { keyword, setKeyword, loading, error, searchResults, search } = useSearch();
 
   useEffect(() => {
@@ -17,11 +15,10 @@ export default function Navigation({ isOpen }) {
   function handleSubmit(e) {
     e.preventDefault();
     search(keyword);
-    router.push(`/search`);
   }
 
   function handleChange(e) {
-    setSearchValue(e.target.value);
+    setKeyword(e.target.value);
   }
   return (
     <Wrapper $isOpen={isOpen}>
@@ -37,7 +34,7 @@ export default function Navigation({ isOpen }) {
             type="text"
             placeholder={searchPlaceholder}
             onChange={handleChange}
-            value={searchValue}
+            value={keyword}
             pattern="[a-zA-Z0-9 ]+"
             validate
           />
