@@ -15,8 +15,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ comics }) {
-  console.log({ comics });
-
   return (
     <Layout home={true}>
       {comics.map((comic) =>

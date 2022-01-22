@@ -13,8 +13,6 @@ export default async function searchHandler(req, res) {
     // match: keyword,
   });
 
-  console.log({ keyword: req.query, data, stuff: JSON.stringify(data.items) });
-
   if (data.total < 1) {
     return res.status(404).send({ message: "No results found" });
   }

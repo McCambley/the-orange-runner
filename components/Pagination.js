@@ -14,10 +14,8 @@ export default function Pagination({ slug, slugs, previousSlug, nextSlug }) {
     if (slugs.length <= 1) return slug;
     const randomSlug = slugs[Math.floor(Math.random() * slugs.length)];
     if (randomSlug === slug) {
-      console.log("Trying again...");
       return getRandomSlug();
     }
-    console.log("Got it!");
     return randomSlug;
   }
 

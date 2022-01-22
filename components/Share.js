@@ -13,7 +13,6 @@ export default function Share({ slug, title, subtitle }) {
   }, []);
 
   useEffect(() => {
-    console.log("here");
     if (!(navigator && navigator.clipboard)) {
       setShowCopy(false);
     }
