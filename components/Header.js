@@ -32,7 +32,7 @@ export default function Header() {
           </Link>
           <Hamburger type="button" onClick={toggleOpen} $isOpen={isOpen} />
         </StickyHeader>
-        <Navigation isOpen={isOpen} />
+        <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
       </Wrapper>
       <Overlay $isOpen={isOpen} onClick={toggleOpen} />
     </>

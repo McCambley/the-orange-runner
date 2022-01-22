@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useSearch } from "../context/searchContext";
 import { List, Item, Wrapper, NavLink, Form, Label, InputWrapper, Input, Button } from "../styles/styledNavigation";
 
-export default function Navigation({ isOpen }) {
+export default function Navigation({ isOpen, setIsOpen }) {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const { keyword, setKeyword, loading, error, searchResults, search } = useSearch();
@@ -14,7 +14,8 @@ export default function Navigation({ isOpen }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    search(keyword);
+    setIsOpen(false);
+    search(keyword.toLowerCase());
   }
 
   function handleChange(e) {

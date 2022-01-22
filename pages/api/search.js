@@ -4,7 +4,14 @@ import { client } from "../../utils/client";
 export default async function searchHandler(req, res) {
   const { keyword } = req.query;
 
-  const data = await client.getEntries({ content_type: "comic", "fields.keywords": keyword });
+  const data = await client.getEntries({
+    content_type: "comic",
+    // "fields.keywords": keyword,
+    query: keyword,
+    // "fields.title": keyword,
+    order: "-fields.originalPublishDate",
+    // match: keyword,
+  });
 
   console.log({ keyword: req.query, data, stuff: JSON.stringify(data.items) });
 
@@ -12,5 +19,5 @@ export default async function searchHandler(req, res) {
     return res.status(404).send({ message: "No results found" });
   }
 
-  return res.status(200).json(data);
+  return res.status(200).json({ data });
 }

@@ -14,6 +14,7 @@ export function SearchProvider({ children }) {
     setSearchResults([]);
     setLoading(true);
     setError(false);
+    router.push(`/search`);
     return fetch(`api/search?keyword=${keyword}`)
       .then((res) => {
         if (!res.ok) {
@@ -21,14 +22,17 @@ export function SearchProvider({ children }) {
         }
         return res.json();
       })
-      .then((data) => {
-        setSearchResults(data);
+      .then((res) => {
+        setSearchResults(res.data.items);
         setLoading(false);
-        router.push(`/search`);
       })
       .catch((error) => {
         setLoading(false);
         setError(true);
+        router.push(`/search`);
+        setTimeout(() => {
+          router.back();
+        }, 1500);
         console.error(error);
       });
   }
