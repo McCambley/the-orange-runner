@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { useSearch } from "../context/searchContext";
 import { List, Item, Wrapper, NavLink, Form, Label, InputWrapper, Input, Button } from "../styles/styledNavigation";
 
 export default function Navigation({ isOpen }) {

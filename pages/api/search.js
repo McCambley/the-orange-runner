@@ -3,5 +3,5 @@ import { client } from "../../utils/client";
 
 export default function searchHandler(req, res) {
   const { keyword } = req.query;
-  res.status(200).json({ keyword });
+  res.status(200).json([{ comic: "thing" }]);
 }

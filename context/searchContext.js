@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { useRouter } from "next/router";
 
 export const SearchContext = createContext();
 
@@ -7,6 +8,7 @@ export function SearchProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const router = useRouter();
 
   function search(keyword) {
     setSearchResults([]);
@@ -22,6 +24,7 @@ export function SearchProvider({ children }) {
       .then((data) => {
         setSearchResults(data);
         setLoading(false);
+        router.push(`/search`);
       })
       .catch((error) => {
         setLoading(false);
