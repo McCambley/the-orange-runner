@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { List, Item, Wrapper, NavLink, Form, Label, InputWrapper, Input, Button } from "../styles/styledNavigation";
 
 export default function Navigation({ isOpen }) {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
   const [searchValue, setSearchValue] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     setSearchPlaceholder("Prefontaine");
@@ -12,7 +14,7 @@ export default function Navigation({ isOpen }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    alert(`Searching ${searchValue}`);
+    router.push(`/search?keyword=${searchValue}`);
   }
 
   function handleChange(e) {
@@ -33,6 +35,7 @@ export default function Navigation({ isOpen }) {
             placeholder={searchPlaceholder}
             onChange={handleChange}
             value={searchValue}
+            pattern="[a-zA-Z0-9 ]+"
             validate
           />
           <Button type="submit" />

@@ -3,14 +3,15 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import Story from "../../components/Story";
 import Comic from "../../components/Comic";
-import { createClient } from "contentful";
+import { client } from "../../utils/client";
 import Fallback from "../../components/Fallback";
 import Pagination from "../../components/Pagination";
+import { client } from "../../utils/client";
 
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-});
+// const client = createClient({
+//   space: process.env.CONTENTFUL_SPACE_ID,
+//   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+// });
 
 export async function getStaticPaths() {
   const res = await client.getEntries({

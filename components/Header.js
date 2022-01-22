@@ -10,6 +10,7 @@ export default function Header() {
   function toggleOpen() {
     setIsOpen(!isOpen);
   }
+
   return (
     <>
       <Wrapper $isOpen={isOpen}>

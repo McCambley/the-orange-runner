@@ -2,14 +2,15 @@ import Layout from "../components/Layout";
 import { createClient } from "contentful";
 import Comic from "../components/Comic";
 import Story from "../components/Story";
+import { client } from "../utils/client";
 // import { useEffect } from "react";
 // import { useSlugs } from "../context/slugContext";
 
 export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-  });
+  // const client = createClient({
+  //   space: process.env.CONTENTFUL_SPACE_ID,
+  //   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  // });
 
   const res = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate" });
 
