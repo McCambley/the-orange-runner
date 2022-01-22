@@ -6,7 +6,6 @@ import Comic from "../../components/Comic";
 import { client } from "../../utils/client";
 import Fallback from "../../components/Fallback";
 import Pagination from "../../components/Pagination";
-import { client } from "../../utils/client";
 
 // const client = createClient({
 //   space: process.env.CONTENTFUL_SPACE_ID,

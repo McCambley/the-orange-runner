@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 import Loading from "../../components/Loading";
-import { client } from "../../utils/client";
 import Comic from "../../components/Comic";
 
 // export async function getServerSideProps(context) {
