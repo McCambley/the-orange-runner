@@ -3,6 +3,7 @@ import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 import Loading from "../../components/Loading";
 import Comic from "../../components/Comic";
+import { useSearch } from "../../context/searchContext";
 
 // export async function getServerSideProps(context) {
 //   const res = await client.getEntries({
@@ -28,31 +29,19 @@ import Comic from "../../components/Comic";
 // }
 
 export default function Search({ comic }) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const { keyword, setKeyword, loading, error, searchResults, search } = useSearch();
 
-  console.log(!!router.isReady, router.query);
-
-  useEffect(() => {
-    setLoading(true);
-
-    fetch(`api/search?keyword=${router.query.keyword}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error({ error });
-      });
-  }, []);
+  // useEffect(() => {
+  //   if (!router.isReady) return;
+  //   setLoading(true);
+  // }, [router]);
 
   return (
     <Layout>
       {loading && <Loading />}
-      {!loading && <Comic standalone={false} comic={comic} />}
+      {!true && <Comic standalone={false} comic={comic} />}
     </Layout>
   );
 }

@@ -1,13 +1,13 @@
 import { GlobalStyle } from "../styles/Global";
-// import { SlugProvider } from "../context/slugContext";
+import { SearchProvider } from "../context/searchContext";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* <SlugProvider> */}
-      <GlobalStyle />
-      <Component {...pageProps} />
-      {/* </SlugProvider> */}
+      <SearchProvider>
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </SearchProvider>
     </>
   );
 }
