@@ -22,7 +22,7 @@ export default function Navigation({ isOpen, setIsOpen }) {
           </Link>
         </Item>
         <Item>
-          <Link href="/favorites" passHref>
+          <Link href="/collections" passHref>
             <NavLink>Favorites</NavLink>
           </Link>
         </Item>
@@ -34,6 +34,11 @@ export default function Navigation({ isOpen, setIsOpen }) {
         <Item>
           <NavLink href="https://www.patreon.com/" target="_blank" rel="noopener noreferrer">
             Patreon
+          </NavLink>
+        </Item>
+        <Item>
+          <NavLink href="https://www.instagram.com/theorangerunner/?hl=en" target="_blank" rel="noopener noreferrer">
+            Subscribe
           </NavLink>
         </Item>
       </List>
