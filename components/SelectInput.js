@@ -10,7 +10,7 @@ export default function SelectInput() {
 
   useEffect(() => {
     console.log("Getting collections...");
-    return fetch(`api/collections`)
+    return fetch(`/api/collections`)
       .then((res) => {
         if (!res.ok) {
           return Promise.reject(`${res.status} error!`);
@@ -34,7 +34,7 @@ export default function SelectInput() {
 
   return (
     <Form action="">
-      <Label htmlFor="collection-select">Collections</Label>
+      <Label htmlFor="collection-select">Favorites</Label>
       <Select ref={select} onChange={handleChange} name="collections" id="collection-select">
         <Option value="">Choose...</Option>
         {collectionData.map((collection) => {
@@ -47,12 +47,4 @@ export default function SelectInput() {
       </Select>
     </Form>
   );
-}
-
-{
-  /* <Option value="">Collections</Option>
-<Option value="favorites">Favorites</Option>
-<Option value="training">Training</Option>
-<Option value="marathons">Marathons</Option>
-<Option value="greek-mythology">Greek Mythology</Option> */
 }
