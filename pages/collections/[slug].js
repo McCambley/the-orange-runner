@@ -46,8 +46,6 @@ export default function Collection({ collection }) {
   if (!collection) return <Fallback />;
   const { title, subtitle, slug, comics } = collection.fields;
 
-  console.log({ comics });
-
   return (
     <Layout home={false}>
       <Head>

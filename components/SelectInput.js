@@ -9,7 +9,6 @@ export default function SelectInput({ setIsOpen }) {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("Getting collections...");
     return fetch(`/api/collections`)
       .then((res) => {
         if (!res.ok) {
@@ -18,7 +17,6 @@ export default function SelectInput({ setIsOpen }) {
         return res.json();
       })
       .then((res) => {
-        console.log(res.data);
         setCollectionData(res.data);
       })
       .catch((error) => {
@@ -27,7 +25,6 @@ export default function SelectInput({ setIsOpen }) {
   }, []);
 
   function handleChange(evt) {
-    console.log(`Looking for '${evt.target.value}' collection...`);
     router.push(`/collections/${evt.target.value}`);
     select.current.selectedIndex = null;
     setIsOpen(false);
