@@ -2,7 +2,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearch } from "../context/searchContext";
 import SelectInput from "./SelectInput";
-import { List, Item, Wrapper, NavLink, Form, Label, InputWrapper, Input, Button } from "../styles/styledNavigation";
+import { List, Item, Wrapper, NavLink } from "../styles/styledNavigation";
+import { Form, Label, InputWrapper, Input, Button } from "../styles/styledFormElements";
 
 export default function Navigation({ isOpen, setIsOpen }) {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");

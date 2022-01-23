@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useRef } from "react";
-import { Form, Label, Select, Option } from "../styles/styledSelectInput";
+import { Form, Label, Select, Option } from "../styles/styledFormElements";
 
 export default function SelectInput() {
   const select = useRef();

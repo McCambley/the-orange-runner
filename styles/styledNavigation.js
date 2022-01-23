@@ -17,64 +17,6 @@ export const Wrapper = styled.nav`
   }
 `;
 
-export const Form = styled.form`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 4px 0 20px;
-
-  @media (max-width: 768px) {
-    padding: 4px 0 12px;
-  }
-`;
-
-export const Label = styled.label`
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 900;
-  font-size: 16px;
-  margin-bottom: 4px;
-
-  @media (max-width: 768px) {
-    text-align: right;
-    font-size: 28px;
-    margin-bottom: 12px;
-    display: none;
-  }
-`;
-
-export const InputWrapper = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 60px;
-  border-radius: 5px;
-  border: 2px solid #000;
-  overflow: hidden;
-`;
-
-export const Input = styled.input`
-  border: none;
-  padding: 8px;
-  max-width: 100%;
-  width: 100%;
-
-  &:focus-visible {
-    outline: #000 auto 1px;
-  }
-`;
-
-export const Button = styled.button`
-  background-image: url("/images/search.svg");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #ff9900;
-  border: none;
-  width: 60px;
-  max-width: 100%;
-  padding: 4px;
-  cursor: pointer;
-`;
-
 export const List = styled.ul`
   margin: 0;
   padding: 0;
