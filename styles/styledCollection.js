@@ -4,6 +4,7 @@ import Link from "next/link";
 export const CollectionList = styled.ul`
   list-style: none;
   padding: 0;
+  max-width: 65vh;
 `;
 export const CollectionItem = styled.a`
   font-size: 24px;
