@@ -46,7 +46,7 @@ export default function SearchInput({ setIsOpen }) {
           name="search"
           id="search"
           type="text"
-          placeholder={searchPlaceholder}
+          placeholder={`${searchPlaceholder}...`}
           onChange={handleChange}
           value={keyword}
           pattern="[a-zA-Z0-9 ]+"

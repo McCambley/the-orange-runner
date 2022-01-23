@@ -41,9 +41,9 @@ export default function SelectInput({ setIsOpen }) {
 
   return (
     <Form action="">
-      <Label htmlFor="collection-select">Favorites</Label>
+      <Label htmlFor="collection-select">Collections</Label>
       <Select ref={select} onChange={handleChange} name="collections" id="collection-select">
-        <Option value="">Collections...</Option>
+        <Option value=" ">Read a series...</Option>
         {collectionData.map((collection) => {
           return (
             <Option key={collection.slug} value={collection.slug}>

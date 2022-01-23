@@ -22,7 +22,7 @@ export default function Collections({ collections }) {
         {collections.map((collection) => {
           return (
             <li key={collection.fields.slug}>
-              <Link href={`/collections/${collection.fields.slug}`}>
+              <Link href={`/collections/${collection.fields.slug}`} passHref>
                 <CollectionItem>{collection.fields.title} </CollectionItem>
               </Link>
               <p>{collection.fields.subtitle}</p>
