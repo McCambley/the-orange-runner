@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearch } from "../context/searchContext";
+import SelectInput from "./SelectInput";
 import { List, Item, Wrapper, NavLink, Form, Label, InputWrapper, Input, Button } from "../styles/styledNavigation";
 
 export default function Navigation({ isOpen, setIsOpen }) {
@@ -42,6 +43,7 @@ export default function Navigation({ isOpen, setIsOpen }) {
           <Button type="submit" />
         </InputWrapper>
       </Form>
+      <SelectInput />
       <List>
         <Item>
           <Link href="/" passHref>
