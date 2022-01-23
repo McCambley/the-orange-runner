@@ -17,6 +17,12 @@ export const Wrapper = styled.nav`
   }
 `;
 
+export const Forms = styled.div`
+  padding: 4px 0 20px;
+  display: grid;
+  gap: 12px;
+`;
+
 export const List = styled.ul`
   margin: 0;
   padding: 0;

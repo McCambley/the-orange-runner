@@ -1,13 +1,15 @@
 import Link from "next/link";
 import SearchInput from "./SearchInput";
 import SelectInput from "./SelectInput";
-import { List, Item, Wrapper, NavLink } from "../styles/styledNavigation";
+import { List, Item, Wrapper, NavLink, Forms } from "../styles/styledNavigation";
 
 export default function Navigation({ isOpen, setIsOpen }) {
   return (
     <Wrapper $isOpen={isOpen}>
-      <SearchInput setIsOpen={setIsOpen} />
-      <SelectInput />
+      <Forms>
+        <SearchInput setIsOpen={setIsOpen} />
+        <SelectInput />
+      </Forms>
       <List>
         <Item>
           <Link href="/" passHref>

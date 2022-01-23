@@ -4,7 +4,6 @@ export const Form = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 4px 0 20px;
 
   @media (max-width: 768px) {
     padding: 4px 0 12px;
