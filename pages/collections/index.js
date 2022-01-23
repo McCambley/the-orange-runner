@@ -14,7 +14,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function CollectionList({ collections }) {
+export default function Collections({ collections }) {
   return (
     <Layout>
       <h1>Collections</h1>
