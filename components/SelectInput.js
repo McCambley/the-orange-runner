@@ -25,9 +25,18 @@ export default function SelectInput({ setIsOpen }) {
   }, []);
 
   function handleChange(evt) {
+    scrollToTop();
     router.push(`/collections/${evt.target.value}`);
     select.current.selectedIndex = null;
     setIsOpen(false);
+  }
+
+  function scrollToTop() {
+    document.querySelector("main").scroll({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
   }
 
   return (
