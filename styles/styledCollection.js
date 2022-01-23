@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export const CollectionList = styled.ul`
   list-style: none;
+  padding: 0;
 `;
 export const CollectionItem = styled.p`
   font-size: 24px;
