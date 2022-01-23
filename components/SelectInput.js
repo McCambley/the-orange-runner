@@ -37,7 +37,10 @@ export default function SelectInput({ setIsOpen }) {
     <Form action="">
       <Label htmlFor="collection-select">Favorites</Label>
       <Select ref={select} onChange={handleChange} name="collections" id="collection-select">
-        <Option value="">Choose...</Option>
+        <Option value="">Collections...</Option>
+        <Option $mobile={true} value="">
+          Favorites...
+        </Option>
         {collectionData.map((collection) => {
           return (
             <Option key={collection.slug} value={collection.slug}>
