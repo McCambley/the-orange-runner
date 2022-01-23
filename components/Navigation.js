@@ -6,7 +6,7 @@ import { List, Item, Wrapper, NavLink } from "../styles/styledNavigation";
 export default function Navigation({ isOpen, setIsOpen }) {
   return (
     <Wrapper $isOpen={isOpen}>
-      <SearchInput />
+      <SearchInput setIsOpen={setIsOpen} />
       <SelectInput />
       <List>
         <Item>
