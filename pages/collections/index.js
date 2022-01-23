@@ -14,9 +14,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function thing({ collections }) {
-  console.log({ collections });
-
+export default function CollectionList({ collections }) {
   return (
     <Layout>
       <h1>Collections</h1>
