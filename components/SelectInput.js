@@ -1,8 +1,20 @@
 import { useRouter } from "next/router";
 import { useRef } from "react";
 import { Form, Label, Select, Option } from "../styles/styledFormElements";
+import { client } from "../utils/client";
 
-export default function SelectInput() {
+export async function getStaticProps() {
+  const res = await client.getEntries({ content_type: "collection" });
+
+  return {
+    props: {
+      collections: res.items,
+    },
+  };
+}
+
+export default function SelectInput({ collections }) {
+  console.log({ collections });
   const select = useRef();
   const router = useRouter();
 
