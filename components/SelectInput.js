@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useRef, useEffect, useState } from "react";
 import { Form, Label, Select, Option } from "../styles/styledFormElements";
 
-export default function SelectInput() {
+export default function SelectInput({ setIsOpen }) {
   const [collectionData, setCollectionData] = useState([]);
 
   const select = useRef();
@@ -30,6 +30,7 @@ export default function SelectInput() {
     console.log(`Looking for '${evt.target.value}' collection...`);
     router.push(`/collections/${evt.target.value}`);
     select.current.selectedIndex = null;
+    setIsOpen(false);
   }
 
   return (

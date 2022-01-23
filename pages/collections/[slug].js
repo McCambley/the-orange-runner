@@ -17,8 +17,6 @@ export async function getStaticPaths() {
     content_type: "collection",
   });
 
-  console.log({ res });
-
   const paths = res.items.map((item) => {
     return {
       params: { slug: item.fields.slug },
@@ -38,8 +36,6 @@ export async function getStaticProps({ params }) {
     // include: 10,
   });
 
-  console.log({ collection });
-
   return {
     props: { collection: collection.items[0] },
     revalidate: 10,
@@ -48,43 +44,31 @@ export async function getStaticProps({ params }) {
 
 export default function Collection({ collection }) {
   if (!collection) return <Fallback />;
+  const { title, subtitle, slug, comics } = collection.fields;
+
+  console.log({ comics });
 
   return (
     <Layout home={false}>
-      {/* <Head>
+      <Head>
         <title>{title}</title>
-        <meta name="description" content={!!subtitle ? subtitle : "A relevant Orange Runner comic..."}></meta>
-        <meta name="keywords" content={comic.fields.keywords.join(", ").toLowerCase()}></meta>
+        <meta name="description" content={`A collection of Orange Runner comics - ${title}`}></meta>
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={subtitle} />
-        <meta property="og:site_name" content={title} />
+        <meta property="og:description" content={`A collection of Orange Runner comics - ${title}`} />
+        <meta property="og:site_name" content={`The Orange Runner`} />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={subtitle} />
-        <meta property="og:image" content={!!panels[0] && `http:${panels[0].fields.file.url}`} />
-        <meta name="twitter:image" content={!!panels[0] && `http:${panels[0].fields.file.url}`} />
-      </Head> */}
+        <meta name="twitter:description" content={`A collection of Orange Runner comics - ${title}`} />
+      </Head>
       {/* map over images from comicData to make articles */}
-      {/* {extendedComic ? <Story comic={comic} standalone /> : <Comic comic={comic} standalone />} */}
-      <h1>Hello</h1>
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
+      {comics.map((comic) =>
+        comic.fields.extendedComic ? (
+          <Story comic={comic} key={comic.sys.id} />
+        ) : (
+          <Comic comic={comic} key={comic.sys.id} />
+        )
+      )}
     </Layout>
   );
 }
-
-// For static page generation
-// export async function getStaticPaths() {
-//   // return a list of possible values for id
-//   const paths = getAllPostIds();
-//   return {
-//     paths: paths,
-//     fallback: false,
-//   };
-// }
-
-// export async function getStaticProps({ params }) {
-//   const postData = await getPostData(params.id);
-//   return {
-//     props: {
-//       postData,
-//     },
-//   };
-// }

@@ -8,7 +8,7 @@ export default function Navigation({ isOpen, setIsOpen }) {
     <Wrapper $isOpen={isOpen}>
       <Forms>
         <SearchInput setIsOpen={setIsOpen} />
-        <SelectInput />
+        <SelectInput setIsOpen={setIsOpen} />
       </Forms>
       <List>
         <Item>
