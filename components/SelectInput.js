@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useRef } from "react";
-import { Form, Label, Select, Option } from "../styles/styledFormElements";
 import { client } from "../utils/client";
+import { Form, Label, Select, Option } from "../styles/styledFormElements";
 
 export async function getStaticProps() {
   const res = await client.getEntries({ content_type: "collection" });
