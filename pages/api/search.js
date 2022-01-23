@@ -10,6 +10,7 @@ export default async function searchHandler(req, res) {
     query: keyword,
     // "fields.title": keyword,
     order: "-fields.originalPublishDate",
+    limit: 1000,
     // match: keyword,
   });
 

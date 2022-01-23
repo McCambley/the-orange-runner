@@ -4,7 +4,7 @@ import Story from "../components/Story";
 import { client } from "../utils/client";
 
 export async function getStaticProps() {
-  const res = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate" });
+  const res = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate", limit: 1000 });
 
   return {
     props: {

@@ -15,6 +15,7 @@ import Pagination from "../../components/Pagination";
 export async function getStaticPaths() {
   const res = await client.getEntries({
     content_type: "comic",
+    limit: 1000,
   });
 
   const paths = res.items.map((item) => {
@@ -33,9 +34,14 @@ export async function getStaticProps({ params }) {
   const matchingComics = await client.getEntries({
     content_type: "comic",
     "fields.slug": params.slug,
+    limit: 1000,
   });
 
-  const allComics = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate" });
+  const allComics = await client.getEntries({
+    content_type: "comic",
+    order: "-fields.originalPublishDate",
+    limit: 1000,
+  });
 
   if (!matchingComics.items.length || !allComics.items.length) {
     return {
