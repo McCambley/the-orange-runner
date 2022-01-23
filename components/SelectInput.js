@@ -1,22 +1,30 @@
 import { useRouter } from "next/router";
-import { useRef } from "react";
-import { client } from "../utils/client";
+import { useRef, useEffect, useState } from "react";
 import { Form, Label, Select, Option } from "../styles/styledFormElements";
 
-export async function getStaticProps() {
-  const res = await client.getEntries({ content_type: "collection" });
+export default function SelectInput() {
+  const [collectionData, setCollectionData] = useState([]);
 
-  return {
-    props: {
-      collections: res.items,
-    },
-  };
-}
-
-export default function SelectInput({ collections }) {
-  console.log({ collections });
   const select = useRef();
   const router = useRouter();
+
+  useEffect(() => {
+    console.log("Getting collections...");
+    return fetch(`api/collections`)
+      .then((res) => {
+        if (!res.ok) {
+          return Promise.reject(`${res.status} error!`);
+        }
+        return res.json();
+      })
+      .then((res) => {
+        console.log(res.data);
+        setCollectionData(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   function handleChange(evt) {
     console.log(`Looking for '${evt.target.value}' collection...`);
@@ -28,12 +36,23 @@ export default function SelectInput({ collections }) {
     <Form action="">
       <Label htmlFor="collection-select">Collections</Label>
       <Select ref={select} onChange={handleChange} name="collections" id="collection-select">
-        <Option value="">Collections</Option>
-        <Option value="favorites">Favorites</Option>
-        <Option value="training">Training</Option>
-        <Option value="marathons">Marathons</Option>
-        <Option value="greek-mythology">Greek Mythology</Option>
+        <Option value="">Choose...</Option>
+        {collectionData.map((collection) => {
+          return (
+            <Option key={collection.slug} value={collection.slug}>
+              {collection.title}
+            </Option>
+          );
+        })}
       </Select>
     </Form>
   );
+}
+
+{
+  /* <Option value="">Collections</Option>
+<Option value="favorites">Favorites</Option>
+<Option value="training">Training</Option>
+<Option value="marathons">Marathons</Option>
+<Option value="greek-mythology">Greek Mythology</Option> */
 }
