@@ -70,6 +70,7 @@ p {
     font-size: 16px;
     line-height: 1.6em;
     margin-bottom: 20px;
+    max-width: 65vh;
 }
 
 a {
