@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
+// import Comic from "../components/ComicOld";
 import Comic from "../components/Comic";
-import Story from "../components/Story";
 import { client } from "../utils/client";
 
 export async function getStaticProps() {
@@ -17,13 +17,9 @@ export async function getStaticProps() {
 export default function Home({ comics }) {
   return (
     <Layout home={true}>
-      {comics.map((comic) =>
-        comic.fields.extendedComic ? (
-          <Story comic={comic} key={comic.sys.id} />
-        ) : (
-          <Comic comic={comic} key={comic.sys.id} />
-        )
-      )}
+      {comics.map((comic) => (
+        <Comic comic={comic} key={comic.sys.id} />
+      ))}
     </Layout>
   );
 }

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Layout from "../../components/Layout";
-import Story from "../../components/Story";
 import Comic from "../../components/Comic";
 import { client } from "../../utils/client";
 import Fallback from "../../components/Fallback";
@@ -53,13 +52,9 @@ export default function Collection({ collection }) {
       {/* map over images from comicData to make articles */}
       <h1>{title}</h1>
       <p>{subtitle}</p>
-      {comics.map((comic) =>
-        comic.fields.extendedComic ? (
-          <Story comic={comic} key={comic.sys.id} />
-        ) : (
-          <Comic comic={comic} key={comic.sys.id} />
-        )
-      )}
+      {comics.map((comic) => (
+        <Comic comic={comic} key={comic.sys.id} />
+      ))}
     </Layout>
   );
 }

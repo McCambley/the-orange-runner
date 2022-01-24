@@ -3,7 +3,6 @@ import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 import Loading from "../../components/Loading";
 import Comic from "../../components/Comic";
-import Story from "../../components/Story";
 import { useSearch } from "../../context/searchContext";
 import { Error, Message, SubMessage } from "../../styles/styledSearch";
 
@@ -14,14 +13,7 @@ export default function Search({ comic }) {
   return (
     <Layout>
       {loading && <Loading />}
-      {!loading &&
-        searchResults.map((comic) =>
-          comic.fields.extendedComic ? (
-            <Story comic={comic} key={comic.sys.id} />
-          ) : (
-            <Comic comic={comic} key={comic.sys.id} />
-          )
-        )}
+      {!loading && searchResults.map((comic) => <Comic comic={comic} key={comic.sys.id} />)}
       {error && (
         <Error>
           <Message>{`No results found for ${keyword.toLowerCase()}`}</Message>

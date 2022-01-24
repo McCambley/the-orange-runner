@@ -1,16 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import Story from "../../components/Story";
 import Comic from "../../components/Comic";
 import { client } from "../../utils/client";
 import Fallback from "../../components/Fallback";
 import Pagination from "../../components/Pagination";
-
-// const client = createClient({
-//   space: process.env.CONTENTFUL_SPACE_ID,
-//   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-// });
 
 export async function getStaticPaths() {
   const res = await client.getEntries({
@@ -66,7 +60,15 @@ export async function getStaticProps({ params }) {
 export default function Post({ comic, slugs, previousSlug, nextSlug }) {
   if (!comic) return <Fallback />;
 
-  const { title, subtitle = "", extendedComic, panels, slug } = comic.fields;
+  const { title, subtitle = "", panels, slug } = comic.fields;
+
+  function getThumbnail() {
+    const assetBlock = comic.fields.story.content.find((item) => item.nodeType == "embedded-asset-block");
+    if (assetBlock) {
+      return `https:${assetBlock.data.target.fields.file.url}`;
+    }
+    return null;
+  }
 
   return (
     <Layout home={false}>
@@ -79,31 +81,12 @@ export default function Post({ comic, slugs, previousSlug, nextSlug }) {
         <meta property="og:site_name" content={title} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={subtitle} />
-        <meta property="og:image" content={!!panels[0] && `http:${panels[0].fields.file.url}`} />
-        <meta name="twitter:image" content={!!panels[0] && `http:${panels[0].fields.file.url}`} />
+        {getThumbnail() && <meta property="og:image" content={getThumbnail()} />}
+        {getThumbnail() && <meta name="twitter:image" content={getThumbnail()} />}
       </Head>
       {/* map over images from comicData to make articles */}
-      {extendedComic ? <Story comic={comic} standalone /> : <Comic comic={comic} standalone />}
+      <Comic comic={comic} standalone />
       <Pagination slug={slug} slugs={slugs} previousSlug={previousSlug} nextSlug={nextSlug} />
     </Layout>
   );
 }
-
-// For static page generation
-// export async function getStaticPaths() {
-//   // return a list of possible values for id
-//   const paths = getAllPostIds();
-//   return {
-//     paths: paths,
-//     fallback: false,
-//   };
-// }
-
-// export async function getStaticProps({ params }) {
-//   const postData = await getPostData(params.id);
-//   return {
-//     props: {
-//       postData,
-//     },
-//   };
-// }
