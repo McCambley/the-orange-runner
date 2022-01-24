@@ -5,6 +5,10 @@ export const CollectionList = styled.ul`
   list-style: none;
   padding: 0;
   max-width: 65vh;
+
+  @media (orientation: landscape) and (max-width: 768px) {
+    max-width: none;
+  }
 `;
 export const CollectionItem = styled.a`
   font-size: 24px;

@@ -46,4 +46,8 @@ export const Navigation = styled.nav`
   @media (max-width: 480px) {
     padding: 12px 0px 0;
   }
+
+  @media (orientation: landscape) and (max-width: 768px) {
+    max-width: none;
+  }
 `;

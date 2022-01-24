@@ -71,6 +71,10 @@ p {
     line-height: 1.6em;
     margin-bottom: 20px;
     max-width: 65vh;
+
+    @media (orientation: landscape) and (max-width: 768px) {
+        max-width: none;
+    }
 }
 
 a {

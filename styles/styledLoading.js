@@ -21,6 +21,10 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   max-width: 65vh;
+
+  @media (orientation: landscape) and (max-width: 768px) {
+    max-width: none;
+  }
   /* justify-content: center; */
   /* align-items: center; */
   /* background-color: #ff9900; */

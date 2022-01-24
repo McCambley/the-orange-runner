@@ -11,4 +11,8 @@ export const Wrapper = styled.div`
     display: block;
     padding-bottom: 100%;
   }
+
+  @media (orientation: landscape) and (max-width: 768px) {
+    max-width: none;
+  }
 `;

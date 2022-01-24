@@ -4,6 +4,10 @@ export const Wrapper = styled.article`
   margin-bottom: 16px;
   width: 100%;
   max-width: 65vh;
+
+  @media (orientation: landscape) and (max-width: 768px) {
+    max-width: none;
+  }
 `;
 
 export const StoryLink = styled.a`

@@ -10,7 +10,6 @@ import { StoryLink, Hr, Quote, Wrapper } from "../styles/styledComic";
 export default function Story({ comic, standalone }) {
   const { originalPublishDate, subtitle, title, slug } = comic.fields;
 
-  console.log();
   const renderOption = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {

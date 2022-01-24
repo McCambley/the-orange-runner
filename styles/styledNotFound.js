@@ -8,6 +8,10 @@ export const Wrapper = styled.section`
   height: 100%;
   align-items: center;
   justify-content: center;
+
+  @media (orientation: landscape) and (max-width: 768px) {
+    max-width: none;
+  }
 `;
 
 export const Title = styled.h2`

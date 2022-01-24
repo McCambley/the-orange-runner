@@ -18,11 +18,6 @@ export default function Navigation({ isOpen, setIsOpen }) {
           </Link>
         </Item>
         <Item>
-          <Link href="/about" passHref>
-            <NavLink>About</NavLink>
-          </Link>
-        </Item>
-        <Item>
           <Link href="/collections/" passHref>
             <NavLink>Collections</NavLink>
           </Link>
@@ -30,19 +25,24 @@ export default function Navigation({ isOpen, setIsOpen }) {
         {/* keeping around just in case */}
         {/* <Item>
           <Link href="/collections/favorites" passHref>
-            <NavLink>Favorites</NavLink>
+          <NavLink>Favorites</NavLink>
           </Link>
         </Item> */}
+        <Item>
+          <Link href="/about" passHref>
+            <NavLink>About</NavLink>
+          </Link>
+        </Item>
         <Item>
           <NavLink href="https://theorangerunner.com/shop/" target="_blank" rel="noopener noreferrer">
             Shop
           </NavLink>
         </Item>
-        <Item>
+        {/* <Item>
           <NavLink href="https://www.patreon.com/" target="_blank" rel="noopener noreferrer">
             Patreon
           </NavLink>
-        </Item>
+        </Item> */}
         {/* <Item>
           <NavLink href="https://www.instagram.com/theorangerunner/?hl=en" target="_blank" rel="noopener noreferrer">
             Subscribe
