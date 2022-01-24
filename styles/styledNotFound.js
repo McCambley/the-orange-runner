@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  max-width: 65vh;
+  height: 100%;
   align-items: center;
   justify-content: center;
 `;
