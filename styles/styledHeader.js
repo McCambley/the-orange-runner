@@ -76,13 +76,13 @@ export const Hamburger = styled.button`
     background-color: transparent;
     border: none;
     background-image: url(${(props) => (props.$isOpen ? "/images/close.svg" : "/images/open.svg")});
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     transition: background-image 0.15s ease;
     cursor: pointer;
-    height: 48px;
-    width: 48px;
+    height: 100%;
+    width: 100%;
   }
 `;
 
