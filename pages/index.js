@@ -1,5 +1,4 @@
 import Layout from "../components/Layout";
-// import Comic from "../components/ComicOld";
 import Comic from "../components/Comic";
 import { client } from "../utils/client";
 

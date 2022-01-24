@@ -1,4 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// This API is no longer used. It's being kept in case it's brought back later.
+// To use, uncomment the SelectInput located in Navigation.js
 import { client } from "../../utils/client";
 
 export default async function searchHandler(req, res) {
@@ -13,6 +15,8 @@ export default async function searchHandler(req, res) {
     limit: 1000,
     // match: keyword,
   });
+
+  console.log({ data });
 
   if (data.total < 1) {
     return res.status(404).send({ message: "No results found" });

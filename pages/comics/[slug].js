@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import Layout from "../../components/Layout";
 import Comic from "../../components/Comic";
 import { client } from "../../utils/client";
@@ -60,7 +59,7 @@ export async function getStaticProps({ params }) {
 export default function Post({ comic, slugs, previousSlug, nextSlug }) {
   if (!comic) return <Fallback />;
 
-  const { title, subtitle = "", panels, slug } = comic.fields;
+  const { title, subtitle = "", slug } = comic.fields;
 
   function getThumbnail() {
     const assetBlock = comic.fields.story.content.find((item) => item.nodeType == "embedded-asset-block");
@@ -74,17 +73,16 @@ export default function Post({ comic, slugs, previousSlug, nextSlug }) {
     <Layout home={false}>
       <Head>
         <title>{title}</title>
-        <meta name="description" content={!!subtitle ? subtitle : "A relevant Orange Runner comic..."}></meta>
-        <meta name="keywords" content={comic.fields.keywords.join(", ").toLowerCase()}></meta>
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={subtitle} />
         <meta property="og:site_name" content={title} />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={subtitle} />
+        <meta name="keywords" content={comic.fields.keywords.join(", ").toLowerCase()}></meta>
+        {subtitle && <meta name="description" content={subtitle}></meta>}{" "}
+        {subtitle && <meta property="og:description" content={subtitle} />}
+        {subtitle && <meta name="twitter:description" content={subtitle} />}
         {getThumbnail() && <meta property="og:image" content={getThumbnail()} />}
         {getThumbnail() && <meta name="twitter:image" content={getThumbnail()} />}
       </Head>
-      {/* map over images from comicData to make articles */}
       <Comic comic={comic} standalone />
       <Pagination slug={slug} slugs={slugs} previousSlug={previousSlug} nextSlug={nextSlug} />
     </Layout>

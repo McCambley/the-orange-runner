@@ -2,17 +2,11 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { generateShimmer } from "../lib/shimmer";
 import Layout from "../components/Layout";
-// import { createClient } from "contentful";
 import { client } from "../utils/client";
 import { Wrapper, AboutLink } from "../styles/styledAbout";
 import Panel from "../components/Panel";
 
 export async function getStaticProps() {
-  // const client = createClient({
-  //   space: process.env.CONTENTFUL_SPACE_ID,
-  //   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-  // });
-
   const res = await client.getEntries({ content_type: "about" });
 
   return {

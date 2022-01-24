@@ -8,6 +8,7 @@ export default function Navigation({ isOpen, setIsOpen }) {
     <Wrapper $isOpen={isOpen}>
       <Forms>
         <SearchInput setIsOpen={setIsOpen} />
+        {/* keeping around just in case */}
         {/* <SelectInput setIsOpen={setIsOpen} /> */}
       </Forms>
       <List>
@@ -26,6 +27,7 @@ export default function Navigation({ isOpen, setIsOpen }) {
             <NavLink>Collections</NavLink>
           </Link>
         </Item>
+        {/* keeping around just in case */}
         {/* <Item>
           <Link href="/collections/favorites" passHref>
             <NavLink>Favorites</NavLink>

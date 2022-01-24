@@ -1,5 +1,8 @@
+// This component is no longer used. It's being kept in case it's brought back later.
+// To use, uncomment the SelectInput located in Navigation.js
+
 import { useRouter } from "next/router";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useDebugValue } from "react";
 import { Form, Label, Select, Option } from "../styles/styledFormElements";
 
 export default function SelectInput({ setIsOpen }) {

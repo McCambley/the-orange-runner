@@ -25,7 +25,6 @@ export async function getStaticProps({ params }) {
   const collection = await client.getEntries({
     content_type: "collection",
     "fields.slug": params.slug,
-    // include: 10,
   });
 
   return {
@@ -36,7 +35,7 @@ export async function getStaticProps({ params }) {
 
 export default function Collection({ collection }) {
   if (!collection) return <Fallback />;
-  const { title, subtitle, slug, comics } = collection.fields;
+  const { title, subtitle, comics } = collection.fields;
 
   return (
     <Layout home={false}>
@@ -49,7 +48,6 @@ export default function Collection({ collection }) {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={`A collection of Orange Runner comics - ${title}`} />
       </Head>
-      {/* map over images from comicData to make articles */}
       <h1>{title}</h1>
       <p>{subtitle}</p>
       {comics.map((comic) => (
