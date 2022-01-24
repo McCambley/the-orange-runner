@@ -37,9 +37,18 @@ export const StickyHeader = styled.div`
     background: #fff;
   }
 
+  @media (orientation: landscape) and (max-width: 768px) {
+    max-width: none;
+    grid-template-columns: 60px 1fr 60px;
+  }
+
   @media (max-width: 580px) {
     gap: 20px;
     grid-template-columns: 60px 1fr 60px;
+  }
+
+  @media (orientation: landscape) and (max-width: 580px) {
+    grid-template-columns: 48px 1fr 48px;
   }
 
   @media (max-width: 400px) {
@@ -62,10 +71,6 @@ export const SmallLogo = styled.a`
     display: block;
     max-width: 100%;
   }
-
-  /* @media (max-width: 580px) {
-    width: 60px;
-  } */
 `;
 
 export const Hamburger = styled.button`
