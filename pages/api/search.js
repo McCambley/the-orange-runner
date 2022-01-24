@@ -16,8 +16,6 @@ export default async function searchHandler(req, res) {
     // match: keyword,
   });
 
-  console.log({ data });
-
   if (data.total < 1) {
     return res.status(404).send({ message: "No results found" });
   }
