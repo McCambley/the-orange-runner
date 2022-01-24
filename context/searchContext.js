@@ -15,7 +15,7 @@ export function SearchProvider({ children }) {
     setLoading(true);
     setError(false);
     router.push(`/search`);
-    return fetch(`api/search?keyword=${keyword}`)
+    return fetch(`/api/search?keyword=${keyword}`)
       .then((res) => {
         if (!res.ok) {
           return Promise.reject(`${res.status} error!`);
