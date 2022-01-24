@@ -38,11 +38,11 @@ export default function Navigation({ isOpen, setIsOpen }) {
             Shop
           </NavLink>
         </Item>
-        {/* <Item>
-          <NavLink href="https://www.patreon.com/" target="_blank" rel="noopener noreferrer">
+        <Item>
+          <NavLink href="https://www.patreon.com/theorangerunner" target="_blank" rel="noopener noreferrer">
             Patreon
           </NavLink>
-        </Item> */}
+        </Item>
         {/* <Item>
           <NavLink href="https://www.instagram.com/theorangerunner/?hl=en" target="_blank" rel="noopener noreferrer">
             Subscribe
