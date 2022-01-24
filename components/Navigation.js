@@ -8,7 +8,7 @@ export default function Navigation({ isOpen, setIsOpen }) {
     <Wrapper $isOpen={isOpen}>
       <Forms>
         <SearchInput setIsOpen={setIsOpen} />
-        <SelectInput setIsOpen={setIsOpen} />
+        {/* <SelectInput setIsOpen={setIsOpen} /> */}
       </Forms>
       <List>
         <Item>
@@ -26,11 +26,11 @@ export default function Navigation({ isOpen, setIsOpen }) {
             <NavLink>Collections</NavLink>
           </Link>
         </Item>
-        <Item>
+        {/* <Item>
           <Link href="/collections/favorites" passHref>
             <NavLink>Favorites</NavLink>
           </Link>
-        </Item>
+        </Item> */}
         <Item>
           <NavLink href="https://theorangerunner.com/shop/" target="_blank" rel="noopener noreferrer">
             Shop

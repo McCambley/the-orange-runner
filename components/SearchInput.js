@@ -37,7 +37,7 @@ export default function SearchInput({ setIsOpen }) {
 
   return (
     <Form onSubmit={handleSubmit} action="">
-      <Label htmlFor="search">Search</Label>
+      <Label htmlFor="search">Search comics by keyword</Label>
       <InputWrapper>
         <Input
           required
