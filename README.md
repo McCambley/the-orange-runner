@@ -11,7 +11,7 @@
 
 ## 📣 Overview
 
-### In 2022, content creators need to provide their audience with content as efficiently as possible. This means building a content management flow that takes publishing content to the world easy, and it means building a platform visible to search engines that will serve that content to users as quickly as possible. By porting an outdated Wordpress blog over to a Next.js, pages rendered on the server side are sent and displayed by the users device in less than a second. Utilizing Contentful, a flexible content management system, code maintenance is taken out of the artists hands to that they can focus on what they do best, publishing beautiful art.
+In 2022, content creators need to provide their audience with content as efficiently as possible. This means building a content management flow that takes publishing content to the world easy, and it means building a platform visible to search engines that will serve that content to users as quickly as possible. By porting an outdated Wordpress blog over to a Next.js, pages rendered on the server side are sent and displayed by the users device in less than a second. Utilizing Contentful, a flexible content management system, code maintenance is taken out of the artists hands to that they can focus on what they do best, publishing beautiful art.
 
 ### So what can you do on this website?
 
@@ -26,15 +26,16 @@
 
 ### Desktop
 
-![Demonstration](./src/images/demo.gif)
+<img width="1436" alt="Screen Shot 2022-01-24 at 6 46 50 PM" src="https://user-images.githubusercontent.com/74033573/150889549-ead4741e-838a-44bc-a6fb-08d2c505a249.png">
 
 ### Mobile
 
-![Demonstration](./src/images/demo.png)
+![TOR_mobile_demo](https://user-images.githubusercontent.com/74033573/150889524-0871b441-be87-4b88-a168-e9111bed7c93.png)
+
 
 ### Lighthouse Improvements
 
-![Demonstration](./src/images/demo2.png)
+![Lighthouse Improvements](https://user-images.githubusercontent.com/74033573/150889501-43ba467c-ed50-47f5-b0a1-771e39cc9d2c.png)
 
 ### Original Concept
 
