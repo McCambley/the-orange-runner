@@ -1,6 +1,6 @@
 <h1 align="center" ><a href="https://the-orange-runner.vercel.app/">View this project live!</a>🎉</h1>
 
-<h2 align="center">This repository contains a redux of The Orange Runner's <a href="https://theorangerunner.com/">original website</a>.</h2>
+<h2 align="center">This repository contains a redux of The Orange Runner's <a href="https://theorangerunner.com/">original website</a>.<br>Check out a live demo of this project <a href="https://youtu.be/G9VpHw2V0II">here</a>.</h2>
 
 ## 🛠 Technologies
 
@@ -20,7 +20,7 @@ In 2022, content creators need to provide their audience with content as efficie
 - Share comics on social media platforms.
 - Learn more about the artist and support his work.
 
-## ✨ Previews
+## ✨ Screenshots - [Live Demo](https://youtu.be/G9VpHw2V0II)
 
 ---
 
