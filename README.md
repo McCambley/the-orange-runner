@@ -51,3 +51,5 @@ In 2022, content creators need to provide their audience with content as efficie
 ## 🔜 Next Steps
 
 - [ ] Paginate using [react-cool-inview](https://github.com/wellyshen/react-cool-inview) with [these instructions](https://www.youtube.com/watch?v=_cccpx2Bw_g&ab_channel=BetterDev) or [search pagination with contentful client](https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/)
+
+- [ ] Actually... we'll statically generate the first 15 or so, then render subsequent loads from the server following [these instructions](https://stackoverflow.com/questions/67624601/how-to-implement-infinite-scroll-in-next-js) 
