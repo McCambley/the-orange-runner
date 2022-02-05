@@ -16,6 +16,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ data }) {
+  // https://stackoverflow.com/questions/67624601/how-to-implement-infinite-scroll-in-next-js
   const [comics, setComics] = useState(data);
   const [hasMore, setHasMore] = useState(true);
 
