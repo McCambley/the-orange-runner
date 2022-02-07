@@ -19,10 +19,33 @@ export default function Home({ data }) {
   // https://stackoverflow.com/questions/67624601/how-to-implement-infinite-scroll-in-next-js
   const [comics, setComics] = useState(data);
   const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(true);
+
 
   function getMoreComics() {
     alert("cool");
     // console.log("Getting more...");
+    return fetch(`/api/comics?skip=${keyword}`)
+      .then((res) => {
+        if (!res.ok) {
+          return Promise.reject(`${res.status} error!`);
+        }
+        return res.json();
+      })
+      .then((res) => {
+        // do another thing
+        setComics((oldList) => {
+          return {...oldList, res.data}
+        })
+        if (res.done) {
+          setHasMore(false)
+        }
+      })
+      .catch(() => {
+        // handle something
+        setLoading(false);
+        console.error(error);
+      });
   }
 
   function handleScroll() {
