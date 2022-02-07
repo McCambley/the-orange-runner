@@ -21,7 +21,6 @@ export default function Home({ data }) {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(true);
 
-
   function getMoreComics() {
     alert("cool");
     // console.log("Getting more...");
@@ -35,10 +34,10 @@ export default function Home({ data }) {
       .then((res) => {
         // do another thing
         setComics((oldList) => {
-          return {...oldList, res.data}
-        })
+          return { ...oldList, data: res.data };
+        });
         if (res.done) {
-          setHasMore(false)
+          setHasMore(false);
         }
       })
       .catch(() => {
