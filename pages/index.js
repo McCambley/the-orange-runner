@@ -5,7 +5,7 @@ import { client } from "../utils/client";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export async function getStaticProps() {
-  const res = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate", limit: 1000 });
+  const res = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate", limit: 15 });
 
   return {
     props: {
@@ -21,17 +21,24 @@ export default function Home({ data }) {
   const [hasMore, setHasMore] = useState(true);
 
   function getMoreComics() {
-    console.log("Getting more...");
+    alert("cool");
+    // console.log("Getting more...");
+  }
+
+  function handleScroll() {
+    // console.log("scrolling");
   }
 
   return (
     <Layout home={true}>
       <InfiniteScroll
-        dataLength={comics.length / 10}
+        dataLength={comics.length}
         next={getMoreComics}
+        onScroll={handleScroll}
         hasMore={hasMore}
         loader={<h3> Loading...</h3>}
         endMessage={<h4>Nothing more to show</h4>}
+        getScrollParent={() => document.getElementsByTagName("main")[0]}
       >
         {comics.map((comic) => (
           <Comic comic={comic} key={comic.sys.id} />
@@ -40,3 +47,9 @@ export default function Home({ data }) {
     </Layout>
   );
 }
+
+// On this page
+// figure out how to get a fixed height div to scroll
+// load only the first 15 comics
+// write and fetch call to get the next 15 and setComics as that
+// scroll again...
