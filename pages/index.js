@@ -1,11 +1,13 @@
 import Layout from "../components/Layout";
 import Comic from "../components/Comic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { client } from "../utils/client";
+import { debounce } from "../lib/debounce";
+import Loading from "../components/Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export async function getStaticProps() {
-  const res = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate", limit: 15 });
+  const res = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate", limit: 3 });
 
   return {
     props: {
@@ -19,53 +21,65 @@ export default function Home({ data }) {
   // https://stackoverflow.com/questions/67624601/how-to-implement-infinite-scroll-in-next-js
   const [comics, setComics] = useState(data);
   const [hasMore, setHasMore] = useState(true);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isScrollEnd, setIsScrollEnd] = useState(false);
+  const debounceScroll = debounce(() => handleScroll(), 40);
 
-  function getMoreComics() {
-    alert("cool");
-    // console.log("Getting more...");
-    return fetch(`/api/comics?skip=${keyword}`)
-      .then((res) => {
-        if (!res.ok) {
-          return Promise.reject(`${res.status} error!`);
-        }
-        return res.json();
-      })
-      .then((res) => {
-        // do another thing
-        setComics((oldList) => {
-          return { ...oldList, data: res.data };
-        });
-        if (res.done) {
-          setHasMore(false);
-        }
-      })
-      .catch(() => {
-        // handle something
-        setLoading(false);
-        console.error(error);
-      });
-  }
+  useEffect(() => {
+    const main = document.getElementById("main");
+    main.addEventListener("scroll", debounceScroll);
+  }, []);
+
+  useEffect(() => {
+    return isScrollEnd && getMoreComics();
+  }, [isScrollEnd]);
 
   function handleScroll() {
-    // console.log("scrolling");
+    const main = document.getElementById("main");
+    const scrollTop = main.scrollTop;
+    const offsetHeight = main.offsetHeight;
+    const scrollHeight = main.scrollHeight;
+    setIsScrollEnd(scrollTop + offsetHeight === scrollHeight);
+  }
+
+  function getMoreComics() {
+    // alert("cool");
+    if (hasMore) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    }
+    console.log("Getting more...");
+    // return fetch(`/api/comics?skip=${keyword}`)
+    //   .then((res) => {
+    //     if (!res.ok) {
+    //       return Promise.reject(`${res.status} error!`);
+    //     }
+    //     return res.json();
+    //   })
+    //   .then((res) => {
+    //     // do another thing
+    //     setComics((oldList) => {
+    //       return { ...oldList, data: res.data };
+    //     });
+    //     if (res.done) {
+    //       setHasMore(false);
+    //     }
+    //   })
+    //   .catch(() => {
+    //     // handle something
+    //     setLoading(false);
+    //     console.error(error);
+    //   });
   }
 
   return (
     <Layout home={true}>
-      <InfiniteScroll
-        dataLength={comics.length}
-        next={getMoreComics}
-        onScroll={handleScroll}
-        hasMore={hasMore}
-        loader={<h3> Loading...</h3>}
-        endMessage={<h4>Nothing more to show</h4>}
-        getScrollParent={() => document.getElementsByTagName("main")[0]}
-      >
-        {comics.map((comic) => (
-          <Comic comic={comic} key={comic.sys.id} />
-        ))}
-      </InfiniteScroll>
+      {comics.map((comic) => (
+        <Comic comic={comic} key={comic.sys.id} />
+      ))}
+      {isLoading && <Loading />}
     </Layout>
   );
 }
