@@ -7,6 +7,7 @@ ${normalize};
     box-sizing: border-box;
     font-family: "PT Serif", serif;
     font-weight: 900;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {

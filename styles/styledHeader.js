@@ -90,7 +90,6 @@ export const Hamburger = styled.button`
     width: 100%;
     padding-top: 100%;
     user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 `;
 
