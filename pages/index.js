@@ -40,11 +40,13 @@ export default function Home({ data }) {
     const scrollTop = main.scrollTop;
     const offsetHeight = main.offsetHeight;
     const scrollHeight = main.scrollHeight;
-    const isScrollEnd = scrollTop + offsetHeight === scrollHeight;
+    const isScrollEnd = scrollTop + offsetHeight + 400 >= scrollHeight;
+    // console.log({ isScrollEnd, scrollTop, offsetHeight, scrollHeight });
     return isScrollEnd && hasMore && getMoreComics(skip);
   }
 
   async function getMoreComics(skip) {
+    // console.log({ hasMore, isLoading });
     if (!hasMore || isLoading) return;
     setIsLoading(true);
 
