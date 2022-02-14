@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { client } from "../utils/client";
 import { debounce } from "../lib/debounce";
 import Loading from "../components/Loading";
-import InfiniteScroll from "react-infinite-scroll-component";
 
 const INITIAL_LENGTH = 5;
 const LIMIT = 5;
@@ -30,9 +29,6 @@ export default function Home({ data }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    document.getElementsByTagName("body")[0].addEventListener("scroll", (evt) => {
-      console.log(evt.target);
-    });
     const main = document.getElementById("main");
     const debounceScroll = debounce(() => handleScroll(comics.length));
     main.addEventListener("scroll", debounceScroll);
@@ -45,7 +41,6 @@ export default function Home({ data }) {
     const offsetHeight = main.offsetHeight;
     const scrollHeight = main.scrollHeight;
     const isScrollEnd = scrollTop + offsetHeight === scrollHeight;
-    console.log({ isScrollEnd, scrollTop, offsetHeight, scrollHeight });
     return isScrollEnd && hasMore && getMoreComics(skip);
   }
 
