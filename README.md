@@ -1,6 +1,6 @@
 <h1 align="center" ><a href="https://the-orange-runner.vercel.app/">View this project live!</a>🎉</h1>
 
-<h2 align="center">This repository contains a redux of The Orange Runner's <a href="https://theorangerunner.com/">original website</a>.</h2>
+<h2 align="center">This repository contains a redux of The Orange Runner's <a href="https://theorangerunner.com/">original website</a>.<br>Check out a demonstration of this project <a href="https://youtu.be/G9VpHw2V0II">here</a>.</h2>
 
 ## 🛠 Technologies
 
@@ -20,7 +20,7 @@ In 2022, content creators need to provide their audience with content as efficie
 - Share comics on social media platforms.
 - Learn more about the artist and support his work.
 
-## ✨ Previews
+## ✨ Screenshots - [Live Demo](https://youtu.be/G9VpHw2V0II)
 
 ---
 
@@ -50,4 +50,8 @@ In 2022, content creators need to provide their audience with content as efficie
 ## 🔜 Next Steps
 
 - [ ] Paginate using [react-cool-inview](https://github.com/wellyshen/react-cool-inview) with [these instructions](https://www.youtube.com/watch?v=_cccpx2Bw_g&ab_channel=BetterDev) or [search pagination with contentful client](https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/)
+
 - [ ] Get working with [TypeScript](https://nextjs.org/docs/basic-features/typescript)
+
+- [ ] Actually... we'll statically generate the first 15 or so, then render subsequent loads from the server following [these instructions](https://stackoverflow.com/questions/67624601/how-to-implement-infinite-scroll-in-next-js) 
+
