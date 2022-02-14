@@ -39,8 +39,8 @@ export const StatusSpinner = styled.div`
   background-image: linear-gradient(#fff, #fff), conic-gradient(#ff9900, #fff);
   background-origin: border-box;
   background-clip: content-box, border-box;
-  width: 116px;
-  height: 116px;
+  width: 60px;
+  height: 60px;
   opacity: 1;
   animation: ${spin} 1s infinite linear;
   margin-bottom: 24px;
