@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Wrapper } from "../styles/styledPanel";
+import { Wrapper, Overlay } from "../styles/styledPanel";
 
 export default function Panel({ src, width, height, alt, placeholder, blurDataURL, ...props }) {
   return (
@@ -15,6 +15,7 @@ export default function Panel({ src, width, height, alt, placeholder, blurDataUR
         objectFit="contain"
         {...props}
       />
+      <Overlay />
     </Wrapper>
   );
 }
