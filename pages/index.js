@@ -30,6 +30,9 @@ export default function Home({ data }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    document.getElementsByTagName("body")[0].addEventListener("scroll", (evt) => {
+      console.log(evt.target);
+    });
     const main = document.getElementById("main");
     const debounceScroll = debounce(() => handleScroll(comics.length));
     main.addEventListener("scroll", debounceScroll);
@@ -42,6 +45,7 @@ export default function Home({ data }) {
     const offsetHeight = main.offsetHeight;
     const scrollHeight = main.scrollHeight;
     const isScrollEnd = scrollTop + offsetHeight === scrollHeight;
+    console.log({ isScrollEnd, scrollTop, offsetHeight, scrollHeight });
     return isScrollEnd && hasMore && getMoreComics(skip);
   }
 

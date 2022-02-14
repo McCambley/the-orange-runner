@@ -29,7 +29,8 @@ export const Main = styled.main`
   }
 
   @media (max-width: 768px) {
-    max-height: none;
+    /* removed for pagination */
+    /* max-height: none; */
     border-left: none;
     padding: 30px 40px 35px;
     display: flex;
