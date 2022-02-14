@@ -69,7 +69,8 @@ export default function Home({ data }) {
       {comics.map((comic) => (
         <Comic comic={comic} key={comic.sys.id} />
       ))}
-      {isLoading && <Loading />}
+      {/* {isLoading && <Loading />} */}
+      {hasMore && <Loading />}
     </Layout>
   );
 }
