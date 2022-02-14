@@ -19,7 +19,7 @@ export const spin = keyframes`
 export const Wrapper = styled.div`
   /* display: flex; */
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   max-width: 65vh;
 
   @media (orientation: landscape) and (max-width: 768px) {
@@ -32,14 +32,15 @@ export const Wrapper = styled.div`
 
 // This spinner is so cool
 export const StatusSpinner = styled.div`
+  margin: 40px auto 0;
   display: block;
   border: double 4px transparent;
   border-radius: 50%;
   background-image: linear-gradient(#fff, #fff), conic-gradient(#ff9900, #fff);
   background-origin: border-box;
   background-clip: content-box, border-box;
-  width: 200px;
-  height: 200px;
+  width: 116px;
+  height: 116px;
   opacity: 1;
   animation: ${spin} 1s infinite linear;
   margin-bottom: 24px;

@@ -70,7 +70,7 @@ export default function Home({ data }) {
         <Comic comic={comic} key={comic.sys.id} />
       ))}
       {/* {isLoading && <Loading />} */}
-      {hasMore && <Loading />}
+      {hasMore && <Loading spinner />}
     </Layout>
   );
 }
