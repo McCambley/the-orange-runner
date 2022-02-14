@@ -1,11 +1,20 @@
 import Layout from "../components/Layout";
 import Comic from "../components/Comic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { client } from "../utils/client";
+import { debounce } from "../lib/debounce";
+import Loading from "../components/Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+const INITIAL_LENGTH = 5;
+const LIMIT = 5;
+
 export async function getStaticProps() {
-  const res = await client.getEntries({ content_type: "comic", order: "-fields.originalPublishDate", limit: 15 });
+  const res = await client.getEntries({
+    content_type: "comic",
+    order: "-fields.originalPublishDate",
+    limit: INITIAL_LENGTH,
+  });
 
   return {
     props: {
@@ -16,40 +25,50 @@ export async function getStaticProps() {
 }
 
 export default function Home({ data }) {
-  // https://stackoverflow.com/questions/67624601/how-to-implement-infinite-scroll-in-next-js
   const [comics, setComics] = useState(data);
   const [hasMore, setHasMore] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
-  function getMoreComics() {
-    alert("cool");
-    // console.log("Getting more...");
+  useEffect(() => {
+    const main = document.getElementById("main");
+    const debounceScroll = debounce(() => handleScroll(comics.length));
+    main.addEventListener("scroll", debounceScroll);
+    return () => main.removeEventListener("scroll", debounceScroll);
+  }, [comics]);
+
+  function handleScroll(skip) {
+    const main = document.getElementById("main");
+    const scrollTop = main.scrollTop;
+    const offsetHeight = main.offsetHeight;
+    const scrollHeight = main.scrollHeight;
+    const isScrollEnd = scrollTop + offsetHeight === scrollHeight;
+    return isScrollEnd && hasMore && getMoreComics(skip);
   }
 
-  function handleScroll() {
-    // console.log("scrolling");
+  async function getMoreComics(skip) {
+    if (!hasMore || isLoading) return;
+    setIsLoading(true);
+
+    const res = await fetch(`/api/comics?skip=${skip}&limit=${LIMIT}`);
+    const { data, done } = await res.json();
+    // remove loader
+    setIsLoading(false);
+    // if no more comics prevent further queries
+    if (done) {
+      setHasMore(false);
+    }
+    // add new comics to list
+    if (res.status == 200) {
+      setComics((list) => [...list, ...data.items]);
+    }
   }
 
   return (
     <Layout home={true}>
-      <InfiniteScroll
-        dataLength={comics.length}
-        next={getMoreComics}
-        onScroll={handleScroll}
-        hasMore={hasMore}
-        loader={<h3> Loading...</h3>}
-        endMessage={<h4>Nothing more to show</h4>}
-        getScrollParent={() => document.getElementsByTagName("main")[0]}
-      >
-        {comics.map((comic) => (
-          <Comic comic={comic} key={comic.sys.id} />
-        ))}
-      </InfiniteScroll>
+      {comics.map((comic) => (
+        <Comic comic={comic} key={comic.sys.id} />
+      ))}
+      {isLoading && <Loading />}
     </Layout>
   );
 }
-
-// On this page
-// figure out how to get a fixed height div to scroll
-// load only the first 15 comics
-// write and fetch call to get the next 15 and setComics as that
-// scroll again...

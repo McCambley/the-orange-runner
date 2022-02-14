@@ -43,7 +43,7 @@ export default function Layout({ children, home }) {
         />
       </Head>
       <Header />
-      <Main>{children}</Main>
+      <Main id="main">{children}</Main>
     </Wrapper>
   );
 }

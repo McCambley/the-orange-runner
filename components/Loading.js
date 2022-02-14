@@ -19,7 +19,7 @@ export default function Loading() {
         terribly one-dimensional.
       </LoadingParagraph>
       <LoadingDiv />
-      <LoadingTime>January 6th, 1993</LoadingTime>
+      {/* <LoadingTime>January 6th, 1993</LoadingTime>
       <LoadingHeader>A story about running</LoadingHeader>
       <LoadingParagraph>
         Hi, I’m Luke. I went to the School of Visual Arts and majored in boxing. I started working at a running store
@@ -27,8 +27,8 @@ export default function Loading() {
         Instagram. I run a lot, I draw comics about running, and in my spare time, I read books about running. It’s
         terribly one-dimensional.
       </LoadingParagraph>
-      <LoadingDiv />
-      <LoadingTime>January 6th, 1993</LoadingTime>
+      <LoadingDiv /> */}
+      {/* <LoadingTime>January 6th, 1993</LoadingTime>
       <LoadingHeader>A story about running</LoadingHeader>
       <LoadingParagraph>
         Hi, I’m Luke. I went to the School of Visual Arts and majored in boxing. I started working at a running store
@@ -36,7 +36,7 @@ export default function Loading() {
         Instagram. I run a lot, I draw comics about running, and in my spare time, I read books about running. It’s
         terribly one-dimensional.
       </LoadingParagraph>
-      <LoadingDiv />
+      <LoadingDiv /> */}
       {/* <StatusSpinner /> */}
       {/* {`Searching for: ${router.query.name}`} */}
     </Wrapper>
