@@ -5,8 +5,8 @@ import { client } from "../utils/client";
 import { debounce } from "../lib/debounce";
 import Loading from "../components/Loading";
 
-const INITIAL_LENGTH = 5;
-const LIMIT = 5;
+const INITIAL_LENGTH = 3;
+const LIMIT = 3;
 
 export async function getStaticProps() {
   const res = await client.getEntries({
