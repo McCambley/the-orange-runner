@@ -84,10 +84,11 @@ export const Hamburger = styled.button`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    transition: background-image 0.15s ease;
+    /* transition: background-image 0.15s ease; */
     cursor: pointer;
-    height: 100%;
+    height: 0;
     width: 100%;
+    padding-top: 100%;
   }
 `;
 
