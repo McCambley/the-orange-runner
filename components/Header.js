@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  function toggleOpen() {
+  function toggleOpen(e) {
     setIsOpen(!isOpen);
   }
 

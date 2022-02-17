@@ -12,6 +12,7 @@ export const Wrapper = styled.header`
   background: #fff;
 
   @media (max-width: 768px) {
+    overflow: hidden;
     flex-direction: column;
     border-top: none;
     padding: 0;
