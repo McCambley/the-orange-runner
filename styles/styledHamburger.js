@@ -14,6 +14,7 @@ export const Button = styled.button`
     width: 100%;
     padding-top: 100%;
     user-select: none;
+    /* overflow: hidden; */
   }
 `;
 
@@ -27,20 +28,34 @@ const Span = styled.span`
   border: 4px solid #000;
   border-radius: 20px;
   background-color: #000;
-  transition: transform 0.3s ease, width 0.3s ease;
+  transition: transform 0.3s ease, width 0.3s ease, opacity 0.3s ease;
+
+  @media (max-width: 580px) {
+    //
+    border: 3px solid #000;
+  }
+
+  @media (orientation: landscape) and (max-width: 580px) {
+    //
+    border: 2px solid #000;
+  }
+
+  @media (max-width: 400px) {
+    //
+    border: 2px solid #000;
+  }
 `;
 
 export const Top = styled(Span)`
-  transform: ${({ $isOpen }) => ($isOpen ? "translate(-85%, -175%) rotate(45deg)" : "translate(-50%, -300%)")};
-  width: ${({ $isOpen }) => ($isOpen ? 75 / 2 : 75)}%;
+  transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%) rotate(45deg)" : "translate(-50%, -300%)")};
 `;
 
 export const Middle = styled(Span)`
-  transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%) rotate(-45deg)" : "translate(-50%, -50%)")};
+  transform: ${({ $isOpen }) => ($isOpen ? "translate(150%, -50%) rotate(0deg)" : "translate(-50%, -50%)")};
+  opacity: ${({ $isOpen }) => ($isOpen ? 0 : 1)};
 `;
 
 export const Bottom = styled(Span)`
-  transform: ${({ $isOpen }) => ($isOpen ? "translate(-15%, 225%) rotate(45deg)" : "translate(0%, 200%)")};
-  transform-origin: top right;
-  width: ${75 / 2}%;
+  transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%) rotate(-45deg)" : "translate(0%, 200%)")};
+  width: ${({ $isOpen }) => ($isOpen ? 75 : 75 / 2)}%;
 `;
