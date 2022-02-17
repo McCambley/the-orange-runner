@@ -8,17 +8,12 @@ export const Button = styled.button`
     background-color: transparent;
     border: none;
     position: relative;
-    /* background-image: url(${(props) => (props.$isOpen ? "/images/close.svg" : "/images/open.svg")}); */
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    /* background-position: center; */
     transition: background-image 0.15s ease;
     cursor: pointer;
     height: 0;
     width: 100%;
     padding-top: 100%;
     user-select: none;
-    /* outline: 1px solid red; */
   }
 `;
 
@@ -37,7 +32,6 @@ const Span = styled.span`
 
 export const Top = styled(Span)`
   transform: ${({ $isOpen }) => ($isOpen ? "translate(-85%, -175%) rotate(45deg)" : "translate(-50%, -300%)")};
-  /* transform: translate(-50%, -300%); */
   width: ${({ $isOpen }) => ($isOpen ? 75 / 2 : 75)}%;
 `;
 
@@ -49,5 +43,4 @@ export const Bottom = styled(Span)`
   transform: ${({ $isOpen }) => ($isOpen ? "translate(-15%, 225%) rotate(45deg)" : "translate(0%, 200%)")};
   transform-origin: top right;
   width: ${75 / 2}%;
-  /* transform: translate(-50%, 200%); */
 `;
