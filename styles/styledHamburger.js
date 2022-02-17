@@ -18,7 +18,7 @@ export const Button = styled.button`
     width: 100%;
     padding-top: 100%;
     user-select: none;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
   }
 `;
 
@@ -31,19 +31,23 @@ const Span = styled.span`
   height: 0;
   border: 4px solid #000;
   border-radius: 20px;
-  transition: transform 0.3s ease;
+  background-color: #000;
+  transition: transform 0.3s ease, width 0.3s ease;
 `;
 
 export const Top = styled(Span)`
-  transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%)" : "translate(-50%, -300%)")};
+  transform: ${({ $isOpen }) => ($isOpen ? "translate(-85%, -175%) rotate(45deg)" : "translate(-50%, -300%)")};
   /* transform: translate(-50%, -300%); */
+  width: ${({ $isOpen }) => ($isOpen ? 75 / 2 : 75)}%;
 `;
 
 export const Middle = styled(Span)`
-  transform: translate(-50%, -50%);
+  transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%) rotate(-45deg)" : "translate(-50%, -50%)")};
 `;
 
 export const Bottom = styled(Span)`
-  transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%)" : "translate(-50%, 200%)")};
+  transform: ${({ $isOpen }) => ($isOpen ? "translate(-15%, 225%) rotate(45deg)" : "translate(0%, 200%)")};
+  transform-origin: top right;
+  width: ${75 / 2}%;
   /* transform: translate(-50%, 200%); */
 `;
