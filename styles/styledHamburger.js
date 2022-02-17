@@ -46,16 +46,24 @@ const Span = styled.span`
   }
 `;
 
+// commented transition sweeps the bottom span up to the middle
+
 export const Top = styled(Span)`
   transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%) rotate(45deg)" : "translate(-50%, -300%)")};
 `;
 
 export const Middle = styled(Span)`
-  transform: ${({ $isOpen }) => ($isOpen ? "translate(150%, -50%) rotate(0deg)" : "translate(-50%, -50%)")};
+  transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%) rotate(0deg)" : "translate(-50%, -50%)")};
   opacity: ${({ $isOpen }) => ($isOpen ? 0 : 1)};
+  width: ${({ $isOpen }) => ($isOpen ? 0 : 75)}%;
+  /* transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%) rotate(-45deg)" : "translate(-50%, -50%)")}; */
 `;
 
 export const Bottom = styled(Span)`
   transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%) rotate(-45deg)" : "translate(0%, 200%)")};
   width: ${({ $isOpen }) => ($isOpen ? 75 : 75 / 2)}%;
+  /* transform: ${({ $isOpen }) => ($isOpen ? "translate(-50%, -50%) rotate(45deg)" : "translate(0%, 200%)")}; */
+  /* width: ${({ $isOpen }) => ($isOpen ? 0 : 75 / 2)}%; */
+  /* transform-origin: bottom right; */
+  /* opacity: ${({ $isOpen }) => ($isOpen ? 0 : 1)}; */
 `;
