@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
-import { Wrapper, Hamburger, LargeLogo, SmallLogo, StickyHeader, Overlay } from "../styles/styledHeader";
+import { Wrapper, LargeLogo, SmallLogo, StickyHeader, Overlay } from "../styles/styledHeader";
 import Navigation from "./Navigation";
+import Hamburger from "./Hamburger";
 import Image from "next/image";
 
 export default function Header() {
@@ -30,7 +31,7 @@ export default function Header() {
               <Image src="/images/the-orange-runner.png" height={67} width={478} alt="The Orange runner" />
             </a>
           </Link>
-          <Hamburger type="button" onClick={toggleOpen} $isOpen={isOpen} />
+          <Hamburger handleClick={toggleOpen} isOpen={isOpen} />
         </StickyHeader>
         <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
       </Wrapper>
