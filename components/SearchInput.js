@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearch } from "../context/searchContext";
-import { Form, Label, InputWrapper, Input, Button } from "../styles/styledFormElements";
+import { Form, Label, InputWrapper, Input, SearchButton } from "../styles/styledFormElements";
 
 export default function SearchInput({ setIsOpen }) {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
@@ -52,7 +52,7 @@ export default function SearchInput({ setIsOpen }) {
           pattern="[a-zA-Z0-9 ]+"
           validate
         />
-        <Button type="submit" />
+        <SearchButton type="submit" />
       </InputWrapper>
     </Form>
   );

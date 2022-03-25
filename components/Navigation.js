@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SearchInput from "./SearchInput";
+import SubscribeInput from "./SubscribeInput";
 import SelectInput from "./SelectInput";
 import { List, Item, Wrapper, NavLink, Forms } from "../styles/styledNavigation";
 
@@ -8,6 +9,7 @@ export default function Navigation({ isOpen, setIsOpen }) {
     <Wrapper $isOpen={isOpen}>
       <Forms>
         <SearchInput setIsOpen={setIsOpen} />
+        <SubscribeInput setIsOpen={setIsOpen} />
         {/* keeping around just in case */}
         {/* <SelectInput setIsOpen={setIsOpen} /> */}
       </Forms>

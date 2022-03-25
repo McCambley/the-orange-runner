@@ -4,6 +4,7 @@ export const Form = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   @media (max-width: 768px) {
     padding: 4px 0 12px;
@@ -49,7 +50,6 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  background-image: url("/images/search.svg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -59,6 +59,36 @@ export const Button = styled.button`
   max-width: 100%;
   padding: 4px;
   cursor: pointer;
+`;
+
+export const StatusMessage = styled.span`
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+  opacity: ${({ $show }) => ($show === true ? "1" : "0")};
+  color: ${({ status }) => {
+    // return status == "good" ? "#ff9900" : "bad" ? "#A24936" : "#000";
+    return status == "good" ? "#ff9900" : "bad" ? "#000" : "#000";
+  }};
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    top: 44px;
+    left: 0;
+    /* display: none; */
+  }
+`;
+
+export const SearchButton = styled(Button)`
+  background-image: url("/images/search.svg");
+`;
+
+export const SubscribeButton = styled(Button)`
+  background-image: url("/images/check.svg");
 `;
 
 export const Select = styled.select`
