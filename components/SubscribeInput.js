@@ -5,7 +5,7 @@ export default function SubscribeInput({ setIsOpen }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState({ quality: "", message: "", show: false });
   const [placeholder, setPlaceholder] = useState("Your email...");
-  const successStates = { quality: "good", message: "Subscribed!", show: true };
+  const successStates = { quality: "good", message: "Check your email!", show: true };
   const failureStates = { quality: "bad", message: "Already subscribed!", show: true };
 
   function hideError() {
@@ -30,7 +30,7 @@ export default function SubscribeInput({ setIsOpen }) {
       method: "POST",
     })
       .then((res) => {
-        if (!res.ok) {
+        if (res.status !== 200) {
           return Promise.reject(`${res.status} error!`);
         }
         return res.json();

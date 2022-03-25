@@ -5,13 +5,24 @@ client.setConfig({
   server: process.env.MAILCHIMP_SERVER_PREFIX,
 });
 
-export default async function subscribeHandler(req, res) {
+export default function subscribeHandler(req, res) {
   const { email } = req.body;
+  console.log("HERE!!!, ", req.method, email);
   // check status of client
   // const response = await client.ping.get();
-  const response = await client.lists.addListMember("d97698f190", {
-    email_address: email,
-    status: "pending",
-  });
-  res.status(200).json(response);
+  return client.lists
+    .addListMember("d97698f190", {
+      email_address: email,
+      status: "pending",
+    })
+    .then((response) => {
+      if (response.status !== "pending") {
+        return Promise.reject(`${response.status} error!`);
+      }
+      console.log({ response });
+      return res.status(200).json({ message: "Successfully subscribed!", response });
+    })
+    .catch((error) => {
+      res.status(404).json({ message: "You're already subscribed!", error });
+    });
 }
