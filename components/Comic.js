@@ -8,6 +8,9 @@ import Share from "./Share";
 import { StoryLink, Hr, Quote, Wrapper } from "../styles/styledComic";
 
 export default function Story({ comic, standalone }) {
+  if (!comic.fields.originalPublishDate) {
+    return;
+  }
   const { originalPublishDate, subtitle, title, slug } = comic.fields;
 
   const renderOption = {
