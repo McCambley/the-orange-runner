@@ -19,9 +19,9 @@ export const Label = styled.label`
 
   @media (max-width: 768px) {
     text-align: right;
-    font-size: 28px;
-    margin-bottom: 12px;
-    display: none;
+    font-size: 24px;
+    margin-bottom: 4px;
+    /* display: none; */
   }
 `;
 
@@ -64,7 +64,7 @@ export const Button = styled.button`
 export const StatusMessage = styled.span`
   position: absolute;
   right: 0;
-  top: 0;
+  top: 64px;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 900;
   font-size: 16px;
@@ -77,7 +77,7 @@ export const StatusMessage = styled.span`
 
   @media (max-width: 768px) {
     font-size: 24px;
-    top: 44px;
+    top: 76px;
     left: 0;
     /* display: none; */
   }

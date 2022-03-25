@@ -51,7 +51,7 @@ export default function SubscribeInput({ setIsOpen }) {
   }
   return (
     <Form onSubmit={handleSubmit} action="">
-      <Label htmlFor="subscribe">Subscribe</Label>
+      <Label htmlFor="subscribe">Get comics in your inbox</Label>
       <InputWrapper>
         <Input
           required
