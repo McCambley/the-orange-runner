@@ -41,7 +41,7 @@ export default function Navigation({ isOpen, setIsOpen }) {
           </NavLink>
         </Item>
         <Item>
-          <NavLink href="https://www.patreon.com/theorangerunner" target="_blank" rel="noopener noreferrer">
+          <NavLink href="https://www.patreon.com/join/theorangerunner" target="_blank" rel="noopener noreferrer">
             Patreon
           </NavLink>
         </Item>
