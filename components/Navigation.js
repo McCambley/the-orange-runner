@@ -36,7 +36,7 @@ export default function Navigation({ isOpen, setIsOpen }) {
           </Link>
         </Item>
         <Item>
-          <NavLink href="https://theorangerunner.com/shop/" target="_blank" rel="noopener noreferrer">
+          <NavLink href="https://theorangerunner.myshopify.com/" target="_blank" rel="noopener noreferrer">
             Shop
           </NavLink>
         </Item>
